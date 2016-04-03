@@ -4,7 +4,7 @@
  * @ngdoc function
  * @name Travelive.controller:ItineraryController
  * @description
- * # HomeController
+ * # DiscoveryController
  */
 module.exports = [
     '$scope',

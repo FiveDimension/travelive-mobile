@@ -62,6 +62,16 @@ angular.module( 'Travelive', [
           }
         }
       })
+      .state('app.discovery', {
+        url: '/discovery',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/discovery.html',
+            controller: 'DiscoveryController'
+          }
+        }
+      })
       .state('app.itinerary', {
         url: '/itinerary',
         cache: true,
@@ -101,11 +111,12 @@ angular.module( 'Travelive', [
 
 // Angular module controllers
 //
-.controller( 'MainController',     require( './controllers/mainController'     ) )
-.controller( 'HomeController',     require( './controllers/homeController'     ) )
-.controller( 'ItineraryController',require( './controllers/itineraryController'     ) )
-.controller( 'ItineraryEditController',require( './controllers/itineraryEditController'     ) )
-.controller( 'SettingsController', require( './controllers/settingsController' ) )
+.controller( 'MainController',          require('./controllers/mainController') )
+.controller( 'HomeController',          require('./controllers/homeController') )
+.controller( 'DiscoveryController',     require('./controllers/discoveryController') )
+.controller( 'ItineraryController',     require('./controllers/itineraryController') )
+.controller( 'ItineraryEditController', require('./controllers/itineraryEditController') )
+.controller( 'SettingsController',      require('./controllers/settingsController') )
 
 // Angular module services
 //

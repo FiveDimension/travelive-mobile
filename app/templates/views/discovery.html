@@ -1,10 +1,15 @@
 <ion-view>
-    <ion-refresher
-            pulling-text="Pull to refresh..."
-            on-refresh="fetchRandomText()">
-    </ion-refresher>
-    <div class="loader" ng-if="isLoading">
-        <ion-spinner></ion-spinner>
-    </div>
+    <!--<ion-header-bar >-->
+
+    <!--</ion-header-bar>-->
+    <ion-header-bar align-title="center" class="bar-positive">
+        <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">发现</h1>
+        <button class="button button-icon icon ion-ios-person-outline"ng-click="doSomething()"></button>
+    </ion-header-bar>
+    <ion-content>
+
+
+    </ion-content>
 
 </ion-view>
