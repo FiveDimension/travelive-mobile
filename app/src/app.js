@@ -17,7 +17,8 @@
 angular.module( 'Travelive', [
   'ionic',
   'ngCordova',
-  'ngResource'
+  'ngResource',
+  'baiduMap'
 ] )
 .run( [
   '$ionicPlatform',
@@ -61,6 +62,26 @@ angular.module( 'Travelive', [
           }
         }
       })
+      .state('app.itinerary', {
+        url: '/itinerary',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/itinerary.html',
+            controller: 'ItineraryController'
+          }
+        }
+      })
+      .state('app.itinerary_edit', {
+        url: '/itinerary_edit',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/itinerayEdit.html',
+            controller: 'ItineraryEditController'
+          }
+        }
+      })
       .state('app.settings', {
         url: '/settings',
         cache: true,
@@ -82,6 +103,8 @@ angular.module( 'Travelive', [
 //
 .controller( 'MainController',     require( './controllers/mainController'     ) )
 .controller( 'HomeController',     require( './controllers/homeController'     ) )
+.controller( 'ItineraryController',require( './controllers/itineraryController'     ) )
+.controller( 'ItineraryEditController',require( './controllers/itineraryEditController'     ) )
 .controller( 'SettingsController', require( './controllers/settingsController' ) )
 
 // Angular module services

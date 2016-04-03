@@ -1,0 +1,10 @@
+<ion-view>
+    <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="fetchRandomText()">
+    </ion-refresher>
+    <div class="loader" ng-if="isLoading">
+        <ion-spinner></ion-spinner>
+    </div>
+
+</ion-view>

@@ -12,6 +12,7 @@ www/
 *.DS_Store
 *.log
 .idea
+*.map
 
 app/scripts/bundle.js
-app/scripts/bundle.js.map
+agpp/scripts/bundle.js.map
