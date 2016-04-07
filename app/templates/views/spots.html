@@ -1,0 +1,24 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+        <h1 class="title" ng-bind="topic"></h1>
+    </ion-header-bar>
+
+    <ion-content style="background: #FBFBFB;">
+        <div class="list">
+            <div ng-repeat="spot in spots" class="spot item item-divider">
+                <div class="list">
+                    <div class="item title" ng-bind="spot.topic" ng-click="open(spot)"></div>
+                    <div class="item item-image body" ng-if="spot.isOpen">
+                        <img ng-src="{{spot.photo}}">
+                    </div>
+                    <div class="item item-text-wrap" ng-if="spot.isOpen" ng-bind="spot.introduce" style="border-bottom: none; padding-bottom: 0px;"></div>
+                    <div class="item detail-button" ng-if="spot.isOpen" style="border-top: none">
+                        <center><button class="button button-small button-outline button-positive">查看攻略与游记</button></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>

@@ -134,10 +134,12 @@
                 var openInfoWindow = function(infoWin) {
                     return function() {
                         this.openInfoWindow(infoWin);
+                        infoWin.redraw();
                     };
                 };
 
                 var mark = function() {
+                    console.log('mark');
 
                     var i = 0;
 
@@ -167,10 +169,19 @@
                         if (!marker.title && !marker.content) {
                             return;
                         }
-                        var infoWindow2 = new BMap.InfoWindow('<p>' + (marker.title ? marker.title : '') + '</p><p>' + (marker.content ? marker.content : '') + '</p>', {
-                            enableMessage: !!marker.enableMessage
-                        });
+
+                        var infoWindow2 = new BMap.InfoWindow(marker.content);
                         marker2.addEventListener('click', openInfoWindow(infoWindow2));
+                        var cb = function(type, target){
+                            console.log(type, target);
+                        };
+                        infoWindow2.addEventListener('click',cb );
+                        infoWindow2.addEventListener('clickclose',cb );
+                        infoWindow2.addEventListener('open',cb );
+                        infoWindow2.addEventListener('close',cb );
+                        infoWindow2.addEventListener('maximize',cb );
+                        infoWindow2.addEventListener('restore',cb );
+
                     }
                 };
 

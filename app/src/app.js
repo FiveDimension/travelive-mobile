@@ -18,7 +18,8 @@ angular.module( 'Travelive', [
   'ionic',
   'ngCordova',
   'ngResource',
-  'baiduMap'
+  //'baiduMap',
+  'l42y.amap.map'
 ] )
 .run( [
   '$ionicPlatform',
@@ -38,8 +39,9 @@ angular.module( 'Travelive', [
   '$httpProvider',
   '$stateProvider',
   '$urlRouterProvider',
+  'AmapProvider',
 
-  function( $httpProvider, $stateProvider, $urlRouterProvider )
+  function( $httpProvider, $stateProvider, $urlRouterProvider, AmapProvider )
   {
     // register $http interceptors, if any. e.g.
     // $httpProvider.interceptors.push('interceptor-name');
@@ -69,6 +71,16 @@ angular.module( 'Travelive', [
           'viewContent': {
             templateUrl: 'templates/views/discovery.html',
             controller: 'DiscoveryController'
+          }
+        }
+      })
+      .state('app.spots', {
+        url: '/spots',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/spots.html',
+            controller: 'SpotsController'
           }
         }
       })
@@ -106,6 +118,11 @@ angular.module( 'Travelive', [
 
     // redirects to default route for undefined routes
     $urlRouterProvider.otherwise('/app/home');
+
+    AmapProvider.config = {
+      key: '553c40e8f236ac9094e3f29c3761a302', // Amap API key, see http://api.amap.com/key
+      version: '1.3' // which Amap API version to use, see http://lbs.amap.com/api/javascript-api/changelog/
+    };
   }
 ] )
 
@@ -117,6 +134,7 @@ angular.module( 'Travelive', [
 .controller( 'ItineraryController',     require('./controllers/itineraryController') )
 .controller( 'ItineraryEditController', require('./controllers/itineraryEditController') )
 .controller( 'SettingsController',      require('./controllers/settingsController') )
+.controller( 'SpotsController',         require('./controllers/spotsEditController') )
 
 // Angular module services
 //

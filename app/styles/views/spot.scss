@@ -1,0 +1,8 @@
+.spot {
+  &.item.item-divider{
+    padding: 0;
+    .list{
+      padding: 0;
+    }
+  }
+}
