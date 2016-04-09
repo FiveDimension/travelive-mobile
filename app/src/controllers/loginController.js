@@ -33,10 +33,10 @@ module.exports = [
               console.log('Thank you for not eating my delicious ice cream cone');
             });
           }else{
-            $rootScope.user = {
+            $rootScope.login({
               username: $scope.input.username,
               uid: data.user_id
-            };
+            });
 
             $scope.goBack();
           }
