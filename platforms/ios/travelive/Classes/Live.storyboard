@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CDK-Ru-Ck3">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Interactive View Controller-->
+        <scene sceneID="dnF-t8-4tT">
+            <objects>
+                <viewController id="BNw-9n-RrU" customClass="InteractiveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R6Z-Vx-kJZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="R22-Hl-eyb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f0c-pE-3Cl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upm-jN-X8c">
+                                <rect key="frame" x="0.0" y="80" width="160" height="286"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PHL-LV-QdU" customClass="CamPreviewView">
+                                <rect key="frame" x="160" y="80" width="160" height="286"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jOc-zE-Bui"/>
+                    <connections>
+                        <outlet property="cameraPreview" destination="PHL-LV-QdU" id="NTC-dN-Nd0"/>
+                        <outlet property="videoPlayView" destination="Upm-jN-X8c" id="ORk-zW-sxX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qlo-wJ-mq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1394" y="1067"/>
+        </scene>
+        <!--Publish View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="PublishView" id="BYZ-38-t0r" customClass="PublishViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TF3-O5-OTm" userLabel="CameraPreviewView" customClass="CamPreviewView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1t-v7-wmd" userLabel="panView">
+                                        <rect key="frame" x="0.0" y="483" width="320" height="85"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9g-pC-qod" userLabel="FlashButton">
+                                                <rect key="frame" x="268" y="21" width="44" height="44"/>
+                                                <state key="normal" image="SwitchFlash_off">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="flashAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Say-7z-OJB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMZ-Qf-B8T" userLabel="SwitchButton">
+                                                <rect key="frame" x="8" y="21" width="44" height="44"/>
+                                                <state key="normal" image="SwitchCamera">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="switchAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yHr-5Y-CMp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Odl-aW-WYM" userLabel="StartButton" customClass="KSHCaptureButton">
+                                                <rect key="frame" x="126" y="9" width="68" height="68"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="68" id="7Ck-va-JQ6"/>
+                                                    <constraint firstAttribute="height" constant="68" id="iux-rj-c3s"/>
+                                                </constraints>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="startAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kTg-Ly-K2o"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="centerY" secondItem="Odl-aW-WYM" secondAttribute="centerY" id="2Id-be-I3Y"/>
+                                            <constraint firstItem="RMZ-Qf-B8T" firstAttribute="leading" secondItem="V1t-v7-wmd" secondAttribute="leadingMargin" id="8gC-yi-ta0"/>
+                                            <constraint firstItem="J9g-pC-qod" firstAttribute="trailing" secondItem="V1t-v7-wmd" secondAttribute="trailingMargin" id="FDH-Sh-xb7"/>
+                                            <constraint firstAttribute="centerX" secondItem="Odl-aW-WYM" secondAttribute="centerX" id="GqI-uq-7cA"/>
+                                            <constraint firstItem="Odl-aW-WYM" firstAttribute="centerY" secondItem="J9g-pC-qod" secondAttribute="centerY" id="dLe-iF-gOy"/>
+                                            <constraint firstItem="RMZ-Qf-B8T" firstAttribute="centerY" secondItem="Odl-aW-WYM" secondAttribute="centerY" id="lZ3-90-nm5"/>
+                                            <constraint firstAttribute="height" constant="85" id="q13-pN-0rP"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7h-K1-iGy" userLabel="Back">
+                                        <rect key="frame" x="8" y="28" width="36" height="36"/>
+                                        <state key="normal" image="qr_vc_left.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uN9-du-HE9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="V1t-v7-wmd" secondAttribute="trailing" id="8gc-bJ-58t"/>
+                                    <constraint firstAttribute="bottom" secondItem="V1t-v7-wmd" secondAttribute="bottom" id="RPr-Oh-3eK"/>
+                                    <constraint firstItem="V1t-v7-wmd" firstAttribute="leading" secondItem="TF3-O5-OTm" secondAttribute="leading" id="Xbh-7c-pZh"/>
+                                    <constraint firstItem="H7h-K1-iGy" firstAttribute="leading" secondItem="TF3-O5-OTm" secondAttribute="leading" constant="8" id="aaq-s5-4a1"/>
+                                    <constraint firstItem="H7h-K1-iGy" firstAttribute="top" secondItem="TF3-O5-OTm" secondAttribute="top" constant="28" id="ncq-z4-GsS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="TF3-O5-OTm" secondAttribute="bottom" id="Tdw-Ev-cIp"/>
+                            <constraint firstAttribute="trailing" secondItem="TF3-O5-OTm" secondAttribute="trailing" id="hao-lZ-E0Q"/>
+                            <constraint firstItem="TF3-O5-OTm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iRG-jC-mpk"/>
+                            <constraint firstItem="TF3-O5-OTm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pRd-Yr-neL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K9t-sQ-AIV">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="IvO-sC-ozW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dry-G8-9rt">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cap"/>
+                                <connections>
+                                    <action selector="capAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aW1-Ae-Bfo"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cameraPreviewView" destination="TF3-O5-OTm" id="tmF-9G-SIx"/>
+                        <outlet property="flashBtn" destination="J9g-pC-qod" id="ct0-QY-2kR"/>
+                        <outlet property="startBtn" destination="Odl-aW-WYM" id="KeC-9I-OVg"/>
+                        <outlet property="switchBtn" destination="RMZ-Qf-B8T" id="a9h-Wm-bzv"/>
+                        <outlet property="tabBar" destination="V1t-v7-wmd" id="vtM-Nx-oyk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lig-C1-0Io">
+            <objects>
+                <navigationController id="CDK-Ru-Ck3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mhh-s2-jfO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WjF-sw-V3u" kind="relationship" relationship="rootViewController" id="JV5-G3-Mca"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Lx-VW-BBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="322" y="134"/>
+        </scene>
+        <!--NodeMediaClient Demo-->
+        <scene sceneID="HMi-qA-qO0">
+            <objects>
+                <viewController id="WjF-sw-V3u" customClass="MainViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Kj-0v-dyQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="JA1-Cf-Cvj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nDE-Jq-szY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="播放地址：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dj-eD-pzK">
+                                <rect key="frame" x="16" y="72" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rtmp://stream.nodemedia.cn/live/demo" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="npy-F1-QeS">
+                                <rect key="frame" x="16" y="101" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qM-AZ-u8v">
+                                <rect key="frame" x="16" y="139" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Run LivePlayer Demo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="发布地址：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Fs-nk-jZJ">
+                                <rect key="frame" x="16" y="177" width="85" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="rtmp://stream.nodemedia.cn/live/stream" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1B-uW-1mg">
+                                <rect key="frame" x="16" y="206" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuE-n3-uDp">
+                                <rect key="frame" x="16" y="244" width="288" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Run LivePubliser Demo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="okO-hw-pl4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NodeMediaClient Demo" id="9j2-MG-0GO"/>
+                    <connections>
+                        <outlet property="playUrl" destination="npy-F1-QeS" id="Kcu-S4-ZEc"/>
+                        <outlet property="publishUrl" destination="K1B-uW-1mg" id="pan-sQ-R3u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yxI-8L-Gw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="840" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SwitchCamera" width="44" height="44"/>
+        <image name="SwitchFlash_off" width="44" height="44"/>
+        <image name="qr_vc_left.png" width="36" height="36"/>
+    </resources>
+</document>

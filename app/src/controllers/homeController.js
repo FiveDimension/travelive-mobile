@@ -15,6 +15,10 @@ module.exports = [
       var searchScope = $scope.$new();
       searchScope.input = {};
 
+      $scope.openLive = function(){
+        window.open("rtmp://127.0.0.1/myapp/b", "_live");
+      };
+
       $scope.onFocus = function(){
         console.log("onFocus");
         searchScope.openModal();
