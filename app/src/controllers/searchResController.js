@@ -15,8 +15,9 @@ module.exports = [
   '$stateParams',
   'ItineraryService',
   '$ionicModal',
+  '$timeout',
 
-  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams, ItineraryService, $ionicModal) {
+  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams, ItineraryService, $ionicModal, $timeout) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
@@ -24,11 +25,22 @@ module.exports = [
       $scope.openModal();
     };
     console.log($stateParams);
-    //$scope.currentMap = angular.copy($rootScope.currentMap);
-    $scope.currentMap = angular.copy($rootScope.currentMap);
+    //$scope.currentMap = angular.copy($rootScope.CurrentMap);
+    $timeout(function(){
+      $scope.currentMap = angular.copy($rootScope.CurrentMap);
+      if($scope.currentMap) {
+        for(var i = 0; i< $scope.currentMap.markers.length; i++ ) {
+          var marker = $scope.currentMap.markers[i];
+          if(ItineraryService.exitedByKey('cache', marker.vpId)) {
+            marker.isAdded = true;
+          } else {
+            marker.isAdded = false;
+          }
+        }
+      }
+    }, 100);
 
-
-    $http.post('http://58.40.126.144/api/getVpDetail', {vp_id: $rootScope.currentMap.vp_id}).success(function(data){
+    $http.post('http://58.40.126.144/api/getVpDetail', {vp_id: $rootScope.CurrentMap.vp_id}).success(function(data){
       console.log(data);
     });
 
@@ -40,10 +52,8 @@ module.exports = [
       for(var i = 0; i< $scope.currentMap.markers.length; i++ ) {
         var marker = $scope.currentMap.markers[i];
         if(ItineraryService.exitedByKey('cache', marker.vpId)) {
-          console.log('set ' +marker.vpId + ' isAdded true');
           marker.isAdded = true;
         } else {
-          console.log('set ' +marker.vpId + ' isAdded false');
           marker.isAdded = false;
         }
       }
@@ -73,6 +83,8 @@ module.exports = [
       $scope.modal = modal;
     });
     $scope.openModal = function () {
+      $scope.itineraryInput = {selected: '新建', name: null};
+      $scope.itineraryKeys = ItineraryService.getAllKey();
       $scope.modal.show();
     };
     $scope.closeModal = function () {
@@ -86,5 +98,28 @@ module.exports = [
     $scope.$on('modal.removed', function () {
     });
 
+    $scope.modalOk = function(selcet, name) {
+      console.log('modalOk', selcet, name, selcet == '新建');
+      var is = ItineraryService.getByKey('cache');
+      if (!is) {
+        return;
+      }
+      if(selcet == '新建') {
+        is.name = name;
+        ItineraryService.saveByKey(name, is);
+        $rootScope.currentItinerary = is;
+      } else {
+        for(var i = 0; is.vp_ids < is.vp_ids.length; i++) {
+          var vp_id =  is.vp_ids[i];
+          ItineraryService.addByKey(selcet, vp_id);
+        }
+        $rootScope.currentItinerary = ItineraryService.getByKey(selcet);
+      }
+      ItineraryService.delKey('cache');
+      console.log('modalOk');
+      $state.go('app.itineraryMap', {name: name});
+
+      $scope.closeModal();
+    };
   }
 ];

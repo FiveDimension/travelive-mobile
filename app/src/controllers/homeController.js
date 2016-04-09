@@ -39,7 +39,7 @@ module.exports = [
       $http.post('http://58.40.126.144/api/searchVp', postData).success(function (data) {
         console.log(data);
         if(data.length == 0) return;
-        $rootScope.currentMap = {
+        $rootScope.CurrentMap = {
           vp_id: data[0].vp_id,
           topic: data[0].name,
           introduce: data[0].introduce,
@@ -57,14 +57,14 @@ module.exports = [
         };
 
         for (var i = 0; i < data.length; i++) {
-          $rootScope.currentMap.markers.push({
+          $rootScope.CurrentMap.markers.push({
             position: [data[i].pin.location.lon, data[i].pin.location.lat],
             image: data[i].photo_url,
             href: '#/app/spot/' + data[i].vp_id ,
             vpId: data[i].vp_id
           })
         }
-        console.log($rootScope.currentMap);
+        //console.log($rootScope.CurrentMap);
         $state.go('app.searchRes');
       });
 

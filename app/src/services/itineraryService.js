@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name Travelive.service:ExampleService
+ * @name Travelive.service:ItineraryService
  * @description
  * # ExampleService
  */
@@ -30,7 +30,27 @@ module.exports = [
       };
 
 
+      var newKey = function(key) {
+        var keys = getAllKey();
+        if(keys.indexOf(key) == -1) {
+          keys.push(key);
+          window.localStorage.setItem("itinerary-list", JSON.stringify(keys));
+        }
+      };
+
+      var delKey = function(key) {
+        var keys = getAllKey();
+        var i = keys.indexOf(key);
+        if(i != -1) {
+          keys.splice(i, 1);
+          window.localStorage.setItem("itinerary-list", JSON.stringify(keys));
+        }
+        window.localStorage.removeItem("itinerary-item-" + key);
+      };
+
+
       var saveByKey = function(key, item) {
+        newKey(key);
         console.log('saveByKey', "itinerary-item-" + key, JSON.stringify(item));
         window.localStorage.setItem("itinerary-item-" + key, JSON.stringify(item));
       };
@@ -104,6 +124,9 @@ module.exports = [
         addByKey: addByKey,
         removeByKey: removeByKey,
         exitedByKey: exitedByKey,
+        saveByKey: saveByKey,
+        newKey: newKey,
+        delKey: delKey
       };
     }
 ];

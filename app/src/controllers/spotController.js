@@ -22,7 +22,7 @@ module.exports = [
     $scope.open = function (spot) {
       spot.isOpen = !spot.isOpen;
     };
-    //$scope.spot = $rootScope.currentMap;
+    //$scope.spot = $rootScope.CurrentMap;
     $http.post('http://58.40.126.144/api/getVpDetail', {vp_id: vp_id}).success(function(data){
       console.log(data);
       var spot = undefined;
@@ -94,7 +94,7 @@ module.exports = [
     //});
 
     $scope.openMap = function() {
-      $rootScope.currentMap = angular.copy($scope.modelSpot);
+      $rootScope.CurrentMap = angular.copy($scope.modelSpot);
       $state.go('app.location');
     };
   }
