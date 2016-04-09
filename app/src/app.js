@@ -144,13 +144,67 @@ angular.module( 'Travelive', [
           }
         }
       })
-      .state('app.settings', {
-        url: '/settings',
+      .state('app.myTravel', {
+        url: '/myTravel',
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/settings.html',
-            controller: 'SettingsController'
+            templateUrl: 'templates/views/myTravel.html',
+          }
+        }
+      })
+      .state('app.login', {
+        url: '/login',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/login.html',
+            controller: 'LoginController'
+          }
+        }
+      })
+      .state('app.myLive', {
+        url: '/myLive',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/myLive.html'
+          }
+        }
+      })
+      .state('app.notification', {
+        url: '/notification',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/notification.html'
+          }
+        }
+      })
+      .state('app.playHistory', {
+        url: '/playHistory',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/playHistory.html'
+          }
+        }
+      })
+      .state('app.myFollow', {
+        url: '/myFollow',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/myFollow.html'
+          }
+        }
+      })
+      .state('app.pointsMall', {
+        url: '/pointsMall',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/pointsMall.html'
           }
         }
       });
@@ -174,6 +228,7 @@ angular.module( 'Travelive', [
 .controller( 'ItineraryController',     require('./controllers/itineraryController') )
 .controller( 'ItineraryEditController', require('./controllers/itineraryEditController') )
 .controller( 'SettingsController',      require('./controllers/settingsController') )
+.controller( 'LoginController',      require('./controllers/loginController') )
 .controller( 'SpotController',          require('./controllers/spotController') )
 .controller( 'SpotsController',         require('./controllers/spotsController') )
 .controller( 'LiveSettingController',         require('./controllers/liveSettingController') )

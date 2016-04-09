@@ -1,0 +1,25 @@
+<ion-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+        <h1 class="title">我的Travel</h1>
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="list">
+          <a class="item item-avatar" ng-if="user">
+            <img src="images/thumbnail/EmptyThunbnailPhoto.png">
+            <h2>{{user.username}}</h2>
+            <!--<p>Back off, man. I'm a scientist.</p>-->
+          </a>
+          <a class="item" ui-sref="app.login" ng-if="!user" style="text-align: center;">登入</a>
+          <a class="item" ui-sref="app.myLive">我的直播</a>
+          <a class="item" ui-sref="app.notification">推送消息</a>
+          <a class="item" ui-sref="app.playHistory">历史观看</a>
+          <a class="item" ui-sref="app.myFollow">关注主播</a>
+          <a class="item" ui-sref="app.pointsMall">积分商城</a>
+          <a class="item">设置</a>
+
+        </div>
+    </ion-content>
+
+</ion-view>

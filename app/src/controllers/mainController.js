@@ -8,9 +8,13 @@
  */
 module.exports = [
     '$scope',
+    '$ionicHistory',
 
-    function( $scope )
+    function( $scope, $ionicHistory)
     {
+      $scope.goBack = function () {
+        $ionicHistory.goBack();
+      };
         // do something with $scope
       $scope.playTest = function(){
         var data = {
