@@ -59,7 +59,7 @@ module.exports = [
       //};
       var postData = {dest: $scope.dest, viewpoint: $scope.viewpoint};
       console.log(postData);
-      $http.post('http://10.3.2.52:8000/api/searchVp', postData).success(function (data) {
+      $http.post('http://58.40.126.144/api/searchVp', postData).success(function (data) {
         console.log(data);
         if(data.length == 0) return;
         $rootScope.currentMap = {
@@ -84,7 +84,7 @@ module.exports = [
             position: [data[i].pin.location.lon, data[i].pin.location.lat],
             image: data[i].photo_url,
             href: '#/app/spot/' + data[i].vp_id ,
-            addId: data[i].vp_id
+            vpId: data[i].vp_id
           })
         }
         console.log($rootScope.currentMap);
