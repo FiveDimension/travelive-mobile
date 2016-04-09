@@ -2,7 +2,7 @@
 
 angular.module('l42y.amap.map', [
   'l42y.amap'
-]).directive('amapMap', function ($window, Amap) {
+]).directive('amapMap', ['$window', 'Amap', function ($window, Amap) {
   return {
     scope: {
       fitView: '=amapMapFitView'
@@ -22,6 +22,15 @@ angular.module('l42y.amap.map', [
           var m = new $window.AMap.Marker(marker);
           m.setMap(map);
           console.log(m, map);
+          if(options.showInfoWindow) {
+            var infowindow = new AMap.InfoWindow({
+              content: '<a href="#/app/live/1"><img src="' + marker.liveImg + '" height="120"></img><a>',
+              offset: new AMap.Pixel(0, -30),
+              size:new AMap.Size(230,0)
+            });
+            infowindow.open(map, m.getPosition());
+          }
+
         }
         addMarker(map);
         $window.AMap.plugin(['AMap.ToolBar','AMap.Scale'],function(){
@@ -36,16 +45,9 @@ angular.module('l42y.amap.map', [
 
         });
 
-        //self.map.plugin(["AMap.ToolBar"], function() {
-        //  self.addControl(new AMap.ToolBar());
-        //});
-        //$scope.$watchCollection('fitView', function (overlays) {
-        //  if (overlays) {
-        //    map.setFitView(overlays);
-        //  }
-        //});
+
       });
     },
     controllerAs: 'amap'
   };
-});
+}]);

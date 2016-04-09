@@ -8,13 +8,13 @@
  */
 module.exports = [
   '$scope',
-  'ExampleService',
+  '$rootScope',
   '$state',
   '$ionicHistory',
   '$http',
   '$ionicModal',
 
-  function ($scope, ExampleService, $state, $ionicHistory, $http, $ionicModal) {
+  function ($scope, $rootScope, $state, $ionicHistory, $http) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
@@ -29,45 +29,25 @@ module.exports = [
       mapOptions: {
         resizeEnable: true,
         center: [119.035393066406, 29.60462623291016],
-        zoom: 10
+        zoom: 16
       },
       marker: {
-        position: [119.035393066406, 29.60462623291016]
+        position: [119.035393066406, 29.60462623291016],
+        liveImg: 'http://inspiration.chanyouji.cn/InspirationActivity/5285/cc55afcb48aa67b18b410ebb0e7128f9.jpg?imageMogr2/crop/!2953x1772a539a0/thumbnail/800',
+        liveUrl: 'rtmp://127.0.0.1/live'
       }
     };
     $scope.modelSpot = angular.copy($scope.spot);
     $scope.modelSpot.mapOptions.pluginScale = true;
     $scope.modelSpot.mapOptions.pluginToolBar = true;
+    $scope.modelSpot.mapOptions.showInfoWindow = true;
     //$http.get('http://q.chanyouji.com/api/v2/activity_collections/911.json').success(function(data){
     //  console.log(data);
     //});
-    $ionicModal.fromTemplateUrl('templates/views/modal/location.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (modal) {
-      $scope.modal = modal;
-    });
-    $scope.openModal = function () {
-      $scope.modal.show();
-    };
-    $scope.closeModal = function () {
-      $scope.modal.hide();
-    };
-    //Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function () {
-      $scope.modal.remove();
-    });
-// Execute action on hide modal
-    $scope.$on('modal.hidden', function () {
-// Execute action
-    });
-// Execute action on remove modal
-    $scope.$on('modal.removed', function () {
-// Execute action
-    });
 
     $scope.openMap = function() {
-      $scope.openModal();
+      $rootScope.currentMap = angular.copy($scope.modelSpot);
+      $state.go('app.location');
     };
   }
 ];

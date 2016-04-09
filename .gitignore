@@ -15,4 +15,4 @@ www/
 *.map
 
 app/scripts/bundle.js
-agpp/scripts/bundle.js.map
+app/scripts/bundle.js.map

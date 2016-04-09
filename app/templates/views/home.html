@@ -5,78 +5,29 @@
     <ion-header-bar align-title="center" class="bar-positive">
         <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
         <h1 class="title">首页</h1>
-        <button class="button button-icon icon ion-ios-person-outline" ng-click="doSomething()"></button>
     </ion-header-bar>
     <ion-content id="home">
-      <div class="search"><input type="search" placeholder="搜索目的地" ng-focus="onFocus()"></div>
-      <div class="cat-box">
-        <h1>大陆热门景点</h1>
-        <div class="row clearfix">
-          <div ng-click="goSearch('云南')"><img src="images/home/yunnan-portrait.jpg"><div>云南</div><div class="sub-title">Yunnan</div></div>
-          <div ng-click="goSearch('四川')"><img src="images/home/sichuan-portrait.jpg"><div>四川</div><div class="sub-title">Sichuan</div></div>
-          <div ng-click="goSearch('三亚')"><img src="images/home/yunnan-portrait.jpg"><div>三亚</div><div class="sub-title">Yunnan</div></div>
+        <div class="content">
+            <div class="card">
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">目的地</span>
+                    <input type="text" placeholder="目的地" ng-focus="onFocus()">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">景点</span>
+                    <input type="text" placeholder="景点" ng-focus="onFocus()">
+                </label>
+                <!--<label class="item item-input item-floating-label">-->
+                    <!--<span class="input-label">Email</span>-->
+                    <!--<input type="text" placeholder="Email">-->
+                <!--</label>-->
+                <div class="item">
+                    <button class="button button-block button-positive">查询</button>
+                </div>
+            </div>
         </div>
-        <div class="row clearfix">
-          <div><img src="images/home/shanghai-portrait.jpg"><div>上海</div><div class="sub-title">Shanghai</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>北京</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>厦门</div><div class="sub-title">Yunnan</div></div>
-        </div>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>广东</div><div class="sub-title">Yunnan</div></div>
-        </div>
-      </div>
-      <div  class="cat-box">
-        <h1>港澳台</h1>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>台湾</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>香港</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>澳门</div><div class="sub-title">Yunnan</div></div>
-        </div>
-      </div>
-      <div  class="cat-box">
-        <h1>亚洲热门目的地</h1>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>日本</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>韩国</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>泰国</div><div class="sub-title">Yunnan</div></div>
-        </div>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>马来西亚</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>新加坡</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>马尔地夫</div><div class="sub-title">Yunnan</div></div>
-        </div>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>印度尼西亚</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>越南</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>尼泊尔</div><div class="sub-title">Yunnan</div></div>
-        </div>
-      </div>
-      <div class="cat-box">
-        <h1>欧洲热门目的地</h1>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>法国</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>西班牙</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>意大利</div><div class="sub-title">Yunnan</div></div>
-        </div>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>英国</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>德国</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>瑞士</div><div class="sub-title">Yunnan</div></div>
-        </div>
-      </div>
-      <div class="cat-box">
-        <h1>其他热门目的地</h1>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>美国</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>新西兰</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>澳大利亚</div><div class="sub-title">Yunnan</div></div>
-        </div>
-        <div class="row clearfix">
-          <div><img src="images/home/yunnan-portrait.jpg"><div>墨西哥</div><div class="sub-title">Yunnan</div></div>
-          <div><img src="images/home/sichuan-portrait.jpg"><div>南极</div><div class="sub-title">Sichuan</div></div>
-          <div><img src="images/home/yunnan-portrait.jpg"><div>肯尼亚</div><div class="sub-title">Yunnan</div></div>
-        </div>
-      </div>
+
     </ion-content>
 
 </ion-view>
