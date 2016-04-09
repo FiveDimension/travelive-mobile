@@ -94,8 +94,18 @@ angular.module( 'Travelive', [
           }
         }
       })
+      .state('app.searchRes', {
+        url: '/search_res',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/location.html',
+            controller: 'SearchResController'
+          }
+        }
+      })
       .state('app.spot', {
-        url: '/spot',
+        url: '/spot/:id',
         cache: true,
         views: {
           'viewContent': {
@@ -166,8 +176,9 @@ angular.module( 'Travelive', [
 .controller( 'SettingsController',      require('./controllers/settingsController') )
 .controller( 'SpotController',          require('./controllers/spotController') )
 .controller( 'SpotsController',         require('./controllers/spotsController') )
-.controller( 'LiveSettingController',   require('./controllers/liveSettingController') )
+.controller( 'LiveSettingController',         require('./controllers/liveSettingController') )
 .controller( 'LocationController',         require('./controllers/locationController') )
+.controller( 'SearchResController',         require('./controllers/searchResController') )
 
 // Angular module services
 //
