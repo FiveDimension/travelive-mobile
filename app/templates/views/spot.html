@@ -5,8 +5,8 @@
     </ion-header-bar>
     <ion-content style="top:-100px;">
         <div class="list">
-            <div class="item item-image">
-                <img ng-src="{{spot.photo}}">
+            <div class="item item-image" style="height: 200px;overflow: hidden;position: relative;">
+                <img ng-src="{{spot.photo}}" style="position: absolute; bottom: 0; left: 0;">
             </div>
             <div class="item item-body">
                 <h3 ng-bind="spot.topic" style="margin-top:0;"></h3>
@@ -25,10 +25,11 @@
             </div>
             <div class="list item" style="padding: 0;">
                 <div class="item title">直播</div>
-                <a class="item item-avatar" ng-repeat="live in spot.lives">
-                    <img ng-src="{{live.userImage}}">
-                    <h2 ng-bind="live.name"></h2>
+                <a class="item item-avatar" ng-repeat="live in spot.lives" ng-click="openVideo(live.st_id)">
+                    <img ng-src="{{live.userImage || 'images/thumbnail/EmptyThunbnailPhoto.png'}}">
+                    <h2 ng-bind="live.title"></h2>
                     <p  ng-bind="live.userName"></p>
+                    <span ng-click="addFollow($event, live.p_user_id)" style="position: absolute;right: 12px;font-size: 40px;top: 14px;color: #A5A3A3;"><i class="icon ion-heart"></i></span>
                 </a>
                 <div class="item" ng-if="spot.lives.length == 0" >暂时没有直播</div>
             </div>
