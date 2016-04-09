@@ -6,15 +6,11 @@
 
     <ion-content>
         <div class="list">
-          <a class="item item-thumbnail-left">
-            <img src="images/home/beijing-portrait.jpg">
-            <h2>SOHO2</h2>
-            <p>2016年04月10日</p>
-          </a>
-          <a class="item item-thumbnail-left">
+          <a class="item item-thumbnail-left" ng-repeat="lv in lives" ng-click="showMenu(lv)">
             <img src="images/home/shanghai-portrait.jpg">
-            <h2>SOHO1</h2>
-            <p>2016年04月1日</p>
+            <h2>{{lv.title}}</h2>
+            <p>{{ lv.time | date:'yyyy年MM月dd日' }}</p>
+            <p>状态: {{ lv.status}}</p>
           </a>
         </div>
     </ion-content>

@@ -179,7 +179,8 @@ angular.module( 'Travelive', [
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/myLive.html'
+            templateUrl: 'templates/views/myLive.html',
+            controller: 'MyLiveController'
           }
         }
       })
@@ -241,6 +242,7 @@ angular.module( 'Travelive', [
 .controller( 'ItineraryMapController',  require('./controllers/itineraryMapController') )
 .controller( 'SettingsController',      require('./controllers/settingsController') )
 .controller( 'LoginController',      require('./controllers/loginController') )
+.controller( 'MyLiveController',      require('./controllers/myLiveController') )
 .controller( 'SpotController',          require('./controllers/spotController') )
 .controller( 'SpotsController',         require('./controllers/spotsController') )
 .controller( 'LiveSettingController',   require('./controllers/liveSettingController') )
