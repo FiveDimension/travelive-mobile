@@ -25,7 +25,7 @@ module.exports = [
       console.log("onFocus");
       searchScope.openModal();
     };
-    $scope.dest = '苏州';
+    $scope.dest = '上海';
     $scope.viewpoint = '';
 
     $scope.doSearch = function () {
@@ -70,7 +70,7 @@ module.exports = [
           mapOptions: {
             resizeEnable: true,
             center: [data[0].pin.location.lon, data[0].pin.location.lat],
-            zoom: 16,
+            zoom: 12,
             pluginScale: true,
             pluginToolBar: true,
             showInfoWindow: true,
@@ -83,7 +83,7 @@ module.exports = [
           $rootScope.currentMap.markers.push({
             position: [data[i].pin.location.lon, data[i].pin.location.lat],
             image: data[i].photo_url,
-            href: '#/app/spot/' + data[i].vp_id,
+            href: '#/app/spot/' + data[i].vp_id ,
             addId: data[i].vp_id
           })
         }

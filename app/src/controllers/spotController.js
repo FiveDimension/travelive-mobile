@@ -12,21 +12,17 @@ module.exports = [
   '$state',
   '$ionicHistory',
   '$http',
-  '$ionicModal',
   '$stateParams',
 
   function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
-    debugger;
     var vp_id = $stateParams.id;
-    vp_id = 2;
-    console.log('vp_id', vp_id);
     $scope.open = function (spot) {
       spot.isOpen = !spot.isOpen;
     };
-    $scope.spot = $rootScope.currentMap;
+    //$scope.spot = $rootScope.currentMap;
     $http.post('http://10.3.2.52:8000/api/getVpDetail', {vp_id: vp_id}).success(function(data){
       console.log(data);
       var spot = undefined;
