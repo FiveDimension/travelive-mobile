@@ -9,15 +9,28 @@
                 <img ng-src="{{spot.photo}}">
             </div>
             <div class="item item-body">
-                <h3 ng-bind="spot.topic"></h3>
-                <p ng-bind="spot.introduce"></p>
+                <h3 ng-bind="spot.topic" style="margin-top:0;"></h3>
+                <p ng-bind="spot.introduce" ng-if="showIntroduce"></p>
+                <center>
+                    <button class="button button-small button-outline button-positive" style="padding-left: 20px; padding-right: 20px;" ng-bind="(showIntroduce? '收起简介' : '展开简介')" ng-click="showIntroduce=!showIntroduce"></button>
+                </center>
             </div>
             <div class="item" style="padding: 0;">
                 <div style="height: 100px;" ng-click="openMap()"
                      amap-map
                      amap-map-options="spot.mapOptions"
-                     amap-map-marker="spot.marker">
+                     amap-map-markers="spot.markers">
                 </div>
+            </div>
+            <div class="item item-divider">
+            </div>
+            <div class="list item" style="padding: 0;">
+                <div class="item title">直播</div>
+                <a class="item item-avatar" ng-repeat="live in spot.lives">
+                    <img ng-src="{{live.userImage}}">
+                    <h2 ng-bind="live.name"></h2>
+                    <p  ng-bind="live.userName"></p>
+                </a>
             </div>
             <!--<a class="item item-icon-left assertive" href="#">-->
                 <!--<i class="icon ion-music-note"></i>-->
