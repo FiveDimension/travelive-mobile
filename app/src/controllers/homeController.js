@@ -70,7 +70,7 @@ module.exports = [
           mapOptions: {
             resizeEnable: true,
             center: [data[0].pin.location.lon, data[0].pin.location.lat],
-            zoom: 12,
+            zoom: 16,
             pluginScale: true,
             pluginToolBar: true,
             showInfoWindow: true,

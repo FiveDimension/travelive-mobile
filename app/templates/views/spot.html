@@ -3,7 +3,7 @@
         <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
         <!--<h1 class="title" ng-bind="topic"></h1>-->
     </ion-header-bar>
-    <ion-content style="top:0;">
+    <ion-content style="top:-100px;">
         <div class="list">
             <div class="item item-image">
                 <img ng-src="{{spot.photo}}">
@@ -30,6 +30,7 @@
                     <h2 ng-bind="live.name"></h2>
                     <p  ng-bind="live.userName"></p>
                 </a>
+                <div class="item" ng-if="spot.lives.length == 0" >暂时没有直播</div>
             </div>
             <!--<a class="item item-icon-left assertive" href="#">-->
                 <!--<i class="icon ion-music-note"></i>-->

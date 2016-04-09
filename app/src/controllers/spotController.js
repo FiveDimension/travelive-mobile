@@ -48,7 +48,7 @@ module.exports = [
           position: [spot.pin.location.lon, spot.pin.location.lat],
           image: spot.photo_url
         }],
-        lives: spot.stream
+        lives: spot.streams
       };
       $scope.modelSpot = angular.copy($scope.spot);
       $scope.modelSpot.mapOptions.pluginScale = true;
