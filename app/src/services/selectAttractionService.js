@@ -17,6 +17,10 @@ module.exports = [
         var deferred = $q.defer(),
           searchScope = $rootScope.$new();
 
+        if(typeof option === 'undefined'){
+          option = {};
+        }
+
         searchScope.input={};
 
         $ionicModal.fromTemplateUrl('templates/views/modal/selectAttraction.html', {
@@ -68,17 +72,27 @@ module.exports = [
 
         searchScope.doSearch = function(){
           addHistory(searchScope.input.keyWord);
-          searchScope.result = [{
-              title: "soho1" + searchScope.input.keyWord
-            },{
-              title: "soho2" + searchScope.input.keyWord
-            },{
-              title: "soho3" + searchScope.input.keyWord
-            },{
-              title: "soho4" + searchScope.input.keyWord
-            },{
-              title: "soho5" + searchScope.input.keyWord
-            }];
+          $http.post('http://58.40.126.144/api/simpleSearchVp', {
+              "dest": option.dest,
+              "viewpoint": searchScope.input.keyWord
+            }
+          ).success(function(result){
+              searchScope.result = result.map(function(item){
+                return {title: item.name, vp_id: item.vp_id};
+              });
+          });
+
+          //searchScope.result = [{
+          //    title: "soho1" + searchScope.input.keyWord
+          //  },{
+          //    title: "soho2" + searchScope.input.keyWord
+          //  },{
+          //    title: "soho3" + searchScope.input.keyWord
+          //  },{
+          //    title: "soho4" + searchScope.input.keyWord
+          //  },{
+          //    title: "soho5" + searchScope.input.keyWord
+          //  }];
         };
 
         searchScope.doSelect = function(item){

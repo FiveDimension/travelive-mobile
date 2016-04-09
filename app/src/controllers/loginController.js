@@ -18,7 +18,7 @@ module.exports = [
 
       $scope.doLogin = function(){
         console.log($scope.input.username, $scope.input.password);
-        $http.post("http://10.3.2.52:8000/api/login", {
+        $http.post("http://58.40.126.144/api/login", {
           "username": $scope.input.username,
           "password": $scope.input.password
         }).success(function(data){
