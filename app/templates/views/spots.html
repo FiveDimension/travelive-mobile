@@ -8,13 +8,16 @@
         <div class="list">
             <div ng-repeat="spot in spots" class="spot item item-divider">
                 <div class="list">
-                    <div class="item title" ng-bind="spot.topic" ng-click="open(spot)"></div>
+                    <div class="item title" ng-click="open(spot)">
+                        <i class="icon ion-star"></i>
+                        <span ng-bind="spot.topic" ></span>
+                    </div>
                     <div class="item item-image body" ng-if="spot.isOpen">
                         <img ng-src="{{spot.photo}}">
                     </div>
                     <div class="item item-text-wrap" ng-if="spot.isOpen" ng-bind="spot.introduce" style="border-bottom: none; padding-bottom: 0px;"></div>
                     <div class="item detail-button" ng-if="spot.isOpen" style="border-top: none">
-                        <center><button class="button button-small button-outline button-positive">查看攻略与游记</button></center>
+                        <center><button class="button button-small button-outline button-positive" ui-sref="app.spot">查看攻略与游记</button></center>
                     </div>
                 </div>
             </div>
