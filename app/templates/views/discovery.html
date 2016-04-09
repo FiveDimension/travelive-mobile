@@ -5,11 +5,34 @@
     <ion-header-bar align-title="center" class="bar-positive">
         <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
         <h1 class="title">发现</h1>
-        <button class="button button-icon icon ion-ios-person-outline"ng-click="doSomething()"></button>
+        <!--<button class="button button-icon icon ion-ios-person-outline"ng-click="doSomething()"></button>-->
     </ion-header-bar>
     <ion-content>
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="fetchRandomText()">
+        </ion-refresher>
+        <div class="loader" ng-if="isLoading">
+            <ion-spinner></ion-spinner>
+        </div>
+        <div class="content" ng-if="!isLoading" >
+            <div ng-repeat="item in items" class="list card">
+                <!--<div class="item item-avatar">-->
+                <!--<img src="https://avatars1.githubusercontent.com/u/8654182?v=3&s=460">-->
+                <!--<h2>Pretty Hate Machine</h2>-->
+                <!--<p>Nine Inch Nails</p>-->
+                <!--</div>-->
+                <div class="item item-image">
+                    <img ng-src="{{item.image}}">
+                </div>
+                <a class="item bar-light"  ui-sref="app.spot">
+                    <!--<i class="icon ion-music-note"></i>-->
+                    <span ng-bind="item.name"></span>
+                </a>
+            </div>
+        </div>
 
-        <a ui-sref="app.spots">千岛湖</a>
+
     </ion-content>
 
 </ion-view>

@@ -16,26 +16,26 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
-  <platform name="android">
-    <icon src="resources/android/drawable-ldpi/icon.png" density="ldpi"/>
-    <icon src="resources/android/drawable-mdpi/icon.png" density="mdpi"/>
-    <icon src="resources/android/drawable-hdpi/icon.png" density="hdpi"/>
-    <icon src="resources/android/drawable-xhdpi/icon.png" density="xhdpi"/>
-    <icon src="resources/android/drawable-xxhdpi/icon.png" density="xxhdpi"/>
-    <icon src="resources/android/drawable-xxxhdpiicon.png" density="xxxhdpi"/>
-    <splash src="resources/android/drawable-land-ldpi/screen.png" density="land-ldpi"/>
-    <splash src="resources/android/drawable-land-mdpi/screen.png" density="land-mdpi"/>
-    <splash src="resources/android/drawable-land-hdpi/screen.png" density="land-hdpi"/>
-    <splash src="resources/android/drawable-land-xhdpi/screen.png" density="land-xhdpi"/>
-    <splash src="resources/android/drawable-land-xxhdpi/screen.png" density="land-xxhdpi"/>
-    <splash src="resources/android/drawable-land-xxxhdpi/screen.png" density="land-xxxhdpi"/>
-    <splash src="resources/android/drawable-port-ldpi/screen.png" density="port-ldpi"/>
-    <splash src="resources/android/drawable-port-mdpi/screen.png" density="port-mdpi"/>
-    <splash src="resources/android/drawable-port-hdpi/screen.png" density="port-hdpi"/>
-    <splash src="resources/android/drawable-port-xhdpi/screen.png" density="port-xhdpi"/>
-    <splash src="resources/android/drawable-port-xxhdpi/screen.png" density="port-xxhdpi"/>
-    <splash src="resources/android/drawable-port-xxxhdpi/screen.png" density="port-xxxhdpi"/>
-  </platform>
+  <!--<platform name="android">-->
+    <!--<icon src="resources/android/drawable-ldpi/icon.png" density="ldpi"/>-->
+    <!--<icon src="resources/android/drawable-mdpi/icon.png" density="mdpi"/>-->
+    <!--<icon src="resources/android/drawable-hdpi/icon.png" density="hdpi"/>-->
+    <!--<icon src="resources/android/drawable-xhdpi/icon.png" density="xhdpi"/>-->
+    <!--<icon src="resources/android/drawable-xxhdpi/icon.png" density="xxhdpi"/>-->
+    <!--<icon src="resources/android/drawable-xxxhdpiicon.png" density="xxxhdpi"/>-->
+    <!--<splash src="resources/android/drawable-land-ldpi/screen.png" density="land-ldpi"/>-->
+    <!--<splash src="resources/android/drawable-land-mdpi/screen.png" density="land-mdpi"/>-->
+    <!--<splash src="resources/android/drawable-land-hdpi/screen.png" density="land-hdpi"/>-->
+    <!--<splash src="resources/android/drawable-land-xhdpi/screen.png" density="land-xhdpi"/>-->
+    <!--<splash src="resources/android/drawable-land-xxhdpi/screen.png" density="land-xxhdpi"/>-->
+    <!--<splash src="resources/android/drawable-land-xxxhdpi/screen.png" density="land-xxxhdpi"/>-->
+    <!--<splash src="resources/android/drawable-port-ldpi/screen.png" density="port-ldpi"/>-->
+    <!--<splash src="resources/android/drawable-port-mdpi/screen.png" density="port-mdpi"/>-->
+    <!--<splash src="resources/android/drawable-port-hdpi/screen.png" density="port-hdpi"/>-->
+    <!--<splash src="resources/android/drawable-port-xhdpi/screen.png" density="port-xhdpi"/>-->
+    <!--<splash src="resources/android/drawable-port-xxhdpi/screen.png" density="port-xxhdpi"/>-->
+    <!--<splash src="resources/android/drawable-port-xxxhdpi/screen.png" density="port-xxxhdpi"/>-->
+  <!--</platform>-->
   <platform name="ios">
     <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
     <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>

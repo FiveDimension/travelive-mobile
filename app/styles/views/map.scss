@@ -1,0 +1,17 @@
+.amap-info {
+
+  .amap-info-content.amap-info-outer {
+    padding: 0px;
+    width: 80px !important;
+    overflow: hidden;
+    a {
+      display: block;
+      line-height: 1;
+      width: 50px;
+    }
+  }
+
+  .amap-info-close {
+    display: none;
+  }
+}

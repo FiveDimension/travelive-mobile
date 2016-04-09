@@ -2,6 +2,7 @@
 # http://git-scm.com/docs/gitignore
 
 node_modules/
+platforms/
 plugins/
 bower_components/
 
@@ -14,4 +15,4 @@ www/
 *.map
 
 app/scripts/bundle.js
-agpp/scripts/bundle.js.map
+app/scripts/bundle.js.map

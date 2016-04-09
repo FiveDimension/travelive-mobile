@@ -22,7 +22,7 @@ module.exports = [
           .then(function(response) {
               $scope.myHTML = response.data.text;
               $scope.isLoading = false;
-              $scope.itineraries = [{
+              $scope.items = [{
                 id: '1',
                 image: 'http://dimg03.c-ctrip.com/images/tg/916/807/115/387aee47fc7a4439918c3cdc3e427db6_C_640_320.jpg',
                 name: '闺蜜夏日——厦门、永定土楼、鼓浪屿',
