@@ -1,6 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var request = require('request');
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
@@ -35,8 +36,24 @@ io.on('connection', function(socket){
   });
 
   socket.on('new like', function(){
-    console.log('like:');
-    console.log(room, user);
+    console.log('like:', room, user);
+
+    request({
+      method: 'POST',
+      url: 'http://58.40.126.144/api/doFavorite',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      json: {st_id: room}
+    }, function (error, response, body) {
+      if (!error) {
+        console.log(body);
+      }
+      else {
+        console.log('Error happened: ' + error);
+      }
+    });
+
     io.to(room).emit('receive like', {
       user: user
     });
