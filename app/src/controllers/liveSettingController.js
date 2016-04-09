@@ -51,7 +51,7 @@ module.exports = [
             "&uid="+ $scope.user.uid +"&rid=" + st_id
           };
           $scope.isOnAir = true;
-          window.open("rtmp://123.56.225.149/myapp/" + st_id, "_live", JSON.stringify(option));
+          window.open("rtmp://182.254.135.18/live/" + st_id, "_live", JSON.stringify(option));
         });
       }
 
