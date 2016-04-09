@@ -18,10 +18,17 @@ module.exports = [
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
-    $scope.topic="千岛湖";
-    $scope.open = function (spot) {
-      spot.isOpen = !spot.isOpen;
+    $scope.input = {};
+    $scope.input.title="千岛湖直播";
+    $scope.input.jingdian="千岛湖";
+
+    $scope.startLive = function () {
+      console.log("startLive", $scope.jingdian);
+      var option = {
+        title: $scope.input.title,
+        jingdian:  $scope.input.jingdian
+      };
+      window.open("rtmp://123.56.225.149/myapp/b", "_live", JSON.stringify(option));
     };
-    $scope.id = $stateParams.id;
   }
 ];

@@ -74,13 +74,13 @@ angular.module( 'Travelive', [
           }
         }
       })
-      .state('app.live', {
-        url: '/live/:id',
+      .state('app.startLive', {
+        url: '/startLive',
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/live.html',
-            controller: 'LiveController'
+            templateUrl: 'templates/views/liveSetting.html',
+            controller: 'LiveSettingController'
           }
         }
       })
@@ -94,18 +94,8 @@ angular.module( 'Travelive', [
           }
         }
       })
-      .state('app.searchRes', {
-        url: '/search_res',
-        cache: true,
-        views: {
-          'viewContent': {
-            templateUrl: 'templates/views/location.html',
-            controller: 'SearchResController'
-          }
-        }
-      })
       .state('app.spot', {
-        url: '/spot/:id',
+        url: '/spot',
         cache: true,
         views: {
           'viewContent': {
@@ -176,9 +166,8 @@ angular.module( 'Travelive', [
 .controller( 'SettingsController',      require('./controllers/settingsController') )
 .controller( 'SpotController',          require('./controllers/spotController') )
 .controller( 'SpotsController',         require('./controllers/spotsController') )
-.controller( 'LiveController',          require('./controllers/liveController') )
-.controller( 'LocationController',      require('./controllers/locationController') )
-.controller( 'SearchResController',     require('./controllers/searchResController') )
+.controller( 'LiveController',         require('./controllers/liveController') )
+.controller( 'LocationController',         require('./controllers/locationController') )
 
 // Angular module services
 //

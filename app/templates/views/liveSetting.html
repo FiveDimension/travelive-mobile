@@ -1,0 +1,33 @@
+<ion-view>
+  <!--<ion-header-bar >-->
+
+  <!--</ion-header-bar>-->
+  <ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+    <h1 class="title">开播设置</h1>
+  </ion-header-bar>
+  <ion-content id="home">
+    <div class="content">
+      <div class="card">
+
+        <label class="item item-input item-floating-label">
+          <span class="input-label">标题</span>
+          <input type="text" placeholder="标题" ng-model="input.title">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">景点</span>
+          <input type="text" placeholder="景点" ng-model="input.jingdian">
+        </label>
+        <!--<label class="item item-input item-floating-label">-->
+        <!--<span class="input-label">Email</span>-->
+        <!--<input type="text" placeholder="Email">-->
+        <!--</label>-->
+        <div class="item">
+          <button class="button button-block button-positive" ng-click="startLive()">开始直播</button>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>

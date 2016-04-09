@@ -9,7 +9,6 @@
 #import "PublishViewController.h"
 #import "LivePublisher.h"
 #include "KSHCaptureButton.h"
-#import "DefConfig.h"
 #import "AppDelegate.h"
 
 
@@ -20,16 +19,27 @@
 @property (weak, nonatomic) IBOutlet UIButton *switchBtn;
 @property (weak, nonatomic) IBOutlet UIButton *flashBtn;
 @property (weak, nonatomic) IBOutlet UIView *tabBar;
+@property (weak, nonatomic) IBOutlet UILabel *jingDianLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *chatRoomView;
 
 @property (nonatomic) LivePublisher *lp;
 @property (nonatomic) bool isStarting;
 @property (nonatomic) bool isFlashEnable;
+
+@property (nonatomic, strong) NSString* publishUrl;
+@property (nonatomic, strong) NSDictionary* option;
 @end
 
 @implementation PublishViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    self.jingDianLabel.text = [self.option objectForKey:@"jingdian"];
+    self.chatRoomView.backgroundColor = [UIColor clearColor];
+    self.chatRoomView.opaque = NO;
+    [self.chatRoomView loadHTMLString:@"<div>111</div><div>222</div><div>333</div>" baseURL:[NSURL URLWithString:@"http://127.0.0.1/"]];
     
     //隐藏导航条
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
@@ -138,6 +148,14 @@
     
 }
 
+-(void)putPublishUrl:(NSString*)publishUrl{
+    self.publishUrl = publishUrl;
+}
+
+-(void)putOption:(NSDictionary*)optionDir{
+    self.option = optionDir;
+}
+
 -(void) onEventCallback:(int)event msg:(NSString *)msg {
     NSLog(@"onEventCallback:%d %@",event,msg);
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -206,8 +224,7 @@
 //        _lp.publishType = PUBLISH_TYPE_RECORD;    //设置为发布录制模式 fms与red5兼容
         
         //开始发布 普通模式
-        [_lp startPublish:[[DefConfig sharedInstance] getPublishUrl]];
-        
+        [_lp startPublish:self.publishUrl];
     }
 }
 
