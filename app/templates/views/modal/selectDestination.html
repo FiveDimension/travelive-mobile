@@ -1,0 +1,27 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <input type="search" placeholder="搜索目的地" style="width: 85%;" ng-model="input.keyWord" ng-keypress="onKeypress($event)">
+    <button class="button" style="width: 14%;" ng-click="closeModal()">取消</button>
+  </ion-header-bar>
+  <ion-content style="background-color: #f5f5f5;">
+    <div ng-if="!result">
+      <section class="hotel-keyword-block" ng-if="rh.length!==0">
+        <p><i class="hotel-keyword-icon2"></i>搜索历史<span class="js_clear clearall" ng-click="clearHistory()">清空</span></p>
+        <ul class="hotel-keyword-filter">
+          <li ng-repeat="h in rh track by $index" ng-click="goSearch(h)">{{h}}</li>
+        </ul>
+      </section>
+
+      <section class="hotel-keyword-block">
+        <p><i class="hotel-keyword-icon2"></i>热门城市</p>
+        <ul class="hotel-keyword-filter">
+          <li ng-repeat="c in hotCity" ng-click="doSelect(c)">{{c}}</li>
+        </ul>
+      </section>
+    </div>
+    <ul ng-if="result" class="list">
+      <li class="item" ng-repeat="r in result" ng-click="doSelect(r);">{{r}}</li>
+      <li class="item" style="text-align: center">没有结果</li>
+    </ul>
+  </ion-content>
+</ion-modal-view>

@@ -1,7 +1,7 @@
 <ion-modal-view>
   <ion-header-bar>
-    <input type="search" placeholder="搜索目的地" style="width: 320px;" ng-model="input.keyWord" ng-keypress="onKeypress($event)">
-    <button class="button" ng-click="closeModal()">取消</button>
+    <input type="search" placeholder="搜索景点" style="width: 85%;" ng-model="input.keyWord" ng-keypress="onKeypress($event)">
+    <button class="button" style="width: 14%;" ng-click="closeModal()">取消</button>
   </ion-header-bar>
   <ion-content id="search-result" style="background-color: #f5f5f5;">
     <div ng-if="!result">
@@ -44,13 +44,12 @@
         </ul>
       </section>
     </div>
-    <div ng-if="result" class="list" style="background-color: #AAD1D8;">
-        <a class="item item-thumbnail-left" ng-repeat="r in result" ng-click="doSelect(r);">
-          <img src="images/thumbnail/cover.jpg">
-          <h2>{{r.title}}</h2>
-          <p>Nine Inch Nails</p>
-        </a>
-    </div>
+    <ul ng-if="result" class="list">
+      <li class="item" ng-repeat="r in result" ng-click="doSelect(r);">
+        {{r.title}}
+      </li>
+      <li class="item" style="text-align: center">没有结果</li>
+    </ul>
 
   </ion-content>
 </ion-modal-view>

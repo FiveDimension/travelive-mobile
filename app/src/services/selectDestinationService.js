@@ -13,17 +13,39 @@ module.exports = [
     '$rootScope',
 
     function($http, $q, $ionicModal, $rootScope) {
-      var selectAttraction = function(option){
+      var hotCity = [
+        "北京",
+        "上海",
+        "广州",
+        "深圳",
+        "成都",
+        "杭州",
+        "武汉",
+        "西安",
+        "重庆",
+        "青岛",
+        "南京",
+        "厦门",
+        "大连",
+        "天津",
+        "三亚",
+        "济南",
+        "台北",
+        "香港",
+        "沈阳",
+        "苏州"
+      ],
+        allCity = ["北京","上海","广州","深圳","成都","杭州","武汉","西安","重庆","青岛",
+          "南京","厦门","大连","天津","三亚","济南","台北","香港","沈阳","苏州"];
+
+      var selectDestination = function(){
         var deferred = $q.defer(),
           searchScope = $rootScope.$new();
 
-        if(typeof option === 'undefined'){
-          option = {};
-        }
-
+        searchScope.hotCity = hotCity;
         searchScope.input={};
 
-        $ionicModal.fromTemplateUrl('templates/views/modal/selectAttraction.html', {
+        $ionicModal.fromTemplateUrl('templates/views/modal/selectDestination.html', {
           scope: searchScope,
           animation: 'slide-in-up'
         }).then(function (modal) {
@@ -61,7 +83,7 @@ module.exports = [
 
         searchScope.clearHistory = function(){
           searchScope.rh = [];
-          window.localStorage.removeItem("search-history");
+          window.localStorage.removeItem("search-dest-history");
         };
 
         searchScope.onKeypress = function(e) {
@@ -71,28 +93,16 @@ module.exports = [
         };
 
         searchScope.doSearch = function(){
-          addHistory(searchScope.input.keyWord);
-          $http.post('http://58.40.126.144/api/simpleSearchVp', {
-              "dest": option.dest,
-              "viewpoint": searchScope.input.keyWord
-            }
-          ).success(function(result){
-              searchScope.result = result.map(function(item){
-                return {title: item.name, vp_id: item.vp_id};
-              });
-          });
+          var key = searchScope.input.keyWord,
+            array = allCity;
+          addHistory(key);
 
-          //searchScope.result = [{
-          //    title: "soho1" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho2" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho3" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho4" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho5" + searchScope.input.keyWord
-          //  }];
+          searchScope.result = [];
+          for (var i = 0; i < array.length; i++) {
+            if (array[i].indexOf(key) == 0) {
+              searchScope.result.push(array[i]);
+            }
+          }
         };
 
         searchScope.doSelect = function(item){
@@ -104,12 +114,12 @@ module.exports = [
       };
 
       return {
-        selectAttraction: selectAttraction
+        selectDestination: selectDestination
       };
 
 
       function getHistory() {
-        var h = window.localStorage.getItem("search-history");
+        var h = window.localStorage.getItem("search-dest-history");
         if (h) {
           return JSON.parse(h);
         }
@@ -130,7 +140,7 @@ module.exports = [
           if (old.length > 8) {
             old = old.slice(0, 8);
           }
-          window.localStorage.setItem("search-history", JSON.stringify(old));
+          window.localStorage.setItem("search-dest-history", JSON.stringify(old));
         }
       }
     }
