@@ -20,7 +20,7 @@ angular.module( 'Travelive', [
   'ngResource',
   //'baiduMap',
   'l42y.amap.map',
-  'angular-sortable-view'
+  'ui.sortable'
 ] )
 .run( [
   '$ionicPlatform',

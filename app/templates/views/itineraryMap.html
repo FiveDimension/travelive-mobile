@@ -10,15 +10,17 @@
              amap-map
              ng-model="currentMap">
         </div>
-        <div style="position: absolute; width: 80px;height: 500px;background: rgba(0, 0, 0, 0.6);bottom: 128px;right: 7px;border-radius: 5px; padding: 5px">
-            <div class="sortable-container" sv-root sv-part="currentMap.markers">
-                <div ng-repeat="m in currentMap.markers" sv-element class="well">
+        <div style="position: absolute; width: 80px;height: 500px;background: rgba(0, 0, 0, 0.6);bottom: 128px;right: 7px;border-radius: 5px; padding: 5px" >
+            <ul ui-sortable ng-model="currentMap.markers" on-hold="isEdit = true" on-tap="isEdit = false">
+                <li ng-repeat="m in currentMap.markers">
                     <div style="position: relative;" ng-click="">
                         <img ng-src="{{m.image}}" width="70" height="70">
                         <span ng-bind="m.name" style="position: absolute; bottom: 2px; color: #FFF;"></span>
+                        <i ng-if="isEdit" class="icon ion-close-circled" ng-click="del(m)" style="position: absolute;top: -12px;left: -12px;font-size: 24px;color: #000;"></i>
                     </div>
-                </div>
-            </div>
+                </li>
+                <li><center><i class="icon ion-ios-plus-outline" style="font-size: 50px;color: #FFF;" ng-click="add()"></i></center></li>
+            </ul>
         </div>
     </ion-content>
 </ion-modal-view>
