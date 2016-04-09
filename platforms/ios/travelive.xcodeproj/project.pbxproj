@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1497D1601CB8C5B800B257F5 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1497D15F1CB8C5B800B257F5 /* Live.storyboard */; };
 		1497D1641CB8C5D300B257F5 /* PublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1497D1631CB8C5D300B257F5 /* PublishViewController.m */; };
-		1497D16A1CB8C62700B257F5 /* DefConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1497D1691CB8C62700B257F5 /* DefConfig.m */; };
 		1497D16D1CB8C71000B257F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1497D16C1CB8C71000B257F5 /* Images.xcassets */; };
 		1497D16F1CB8C7F000B257F5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1497D16E1CB8C7F000B257F5 /* SystemConfiguration.framework */; };
 		1497D1711CB8C7F900B257F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1497D1701CB8C7F900B257F5 /* AudioToolbox.framework */; };
@@ -21,6 +20,7 @@
 		1497D1821CB8D3AD00B257F5 /* libNodeMediaClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1497D1801CB8D3AD00B257F5 /* libNodeMediaClient.a */; };
 		1497D1851CB8DA3B00B257F5 /* qr_vc_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1497D1831CB8DA3B00B257F5 /* qr_vc_left@2x.png */; };
 		1497D1861CB8DA3B00B257F5 /* qr_vc_left@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1497D1841CB8DA3B00B257F5 /* qr_vc_left@3x.png */; };
+		1497D18B1CB8F80900B257F5 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1497D18A1CB8F80900B257F5 /* PlayViewController.m */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
@@ -79,8 +79,6 @@
 		1497D1611CB8C5D300B257F5 /* LivePublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivePublisher.h; sourceTree = "<group>"; };
 		1497D1621CB8C5D300B257F5 /* PublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishViewController.h; sourceTree = "<group>"; };
 		1497D1631CB8C5D300B257F5 /* PublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishViewController.m; sourceTree = "<group>"; };
-		1497D1681CB8C62700B257F5 /* DefConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefConfig.h; sourceTree = "<group>"; };
-		1497D1691CB8C62700B257F5 /* DefConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefConfig.m; sourceTree = "<group>"; };
 		1497D16C1CB8C71000B257F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1497D16E1CB8C7F000B257F5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1497D1701CB8C7F900B257F5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -93,6 +91,9 @@
 		1497D1801CB8D3AD00B257F5 /* libNodeMediaClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libNodeMediaClient.a; path = lib/libNodeMediaClient.a; sourceTree = "<group>"; };
 		1497D1831CB8DA3B00B257F5 /* qr_vc_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_vc_left@2x.png"; sourceTree = "<group>"; };
 		1497D1841CB8DA3B00B257F5 /* qr_vc_left@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qr_vc_left@3x.png"; sourceTree = "<group>"; };
+		1497D1891CB8F80900B257F5 /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		1497D18A1CB8F80900B257F5 /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		1497D18C1CB8F98000B257F5 /* LivePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LivePlayer.h; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* travelive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,11 +166,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1497D1681CB8C62700B257F5 /* DefConfig.h */,
-				1497D1691CB8C62700B257F5 /* DefConfig.m */,
+				1497D18C1CB8F98000B257F5 /* LivePlayer.h */,
 				1497D1611CB8C5D300B257F5 /* LivePublisher.h */,
 				1497D1621CB8C5D300B257F5 /* PublishViewController.h */,
 				1497D1631CB8C5D300B257F5 /* PublishViewController.m */,
+				1497D1891CB8F80900B257F5 /* PlayViewController.h */,
+				1497D18A1CB8F80900B257F5 /* PlayViewController.m */,
 				1497D15F1CB8C5B800B257F5 /* Live.storyboard */,
 				302D95EE14D2391D003F00A1 /* MainViewController.h */,
 				302D95EF14D2391D003F00A1 /* MainViewController.m */,
@@ -465,8 +467,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				1497D1811CB8D3AD00B257F5 /* KSHCaptureButton.m in Sources */,
+				1497D18B1CB8F80900B257F5 /* PlayViewController.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				1497D16A1CB8C62700B257F5 /* DefConfig.m in Sources */,
 				EAD41DEF0CE24BEBA486E9C3 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

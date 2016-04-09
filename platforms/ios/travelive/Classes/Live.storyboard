@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -108,6 +109,13 @@
                                             <constraint firstAttribute="height" constant="63" id="q13-pN-0rP"/>
                                         </constraints>
                                     </view>
+                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1l8-Lz-tRk">
+                                        <rect key="frame" x="268" y="0.0" width="300" height="257"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="7Bd-RK-q6A"/>
+                                        </constraints>
+                                    </webView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7h-K1-iGy" userLabel="Back">
                                         <rect key="frame" x="15" y="15" width="36" height="34"/>
                                         <state key="normal" title="结束">
@@ -118,13 +126,6 @@
                                             <action selector="backAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uN9-du-HE9"/>
                                         </connections>
                                     </button>
-                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1l8-Lz-tRk">
-                                        <rect key="frame" x="268" y="0.0" width="300" height="257"/>
-                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="7Bd-RK-q6A"/>
-                                        </constraints>
-                                    </webView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -186,6 +187,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Lx-VW-BBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="322" y="134"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="qtT-qa-Zgx">
+            <objects>
+                <viewController storyboardIdentifier="PlayView" id="eg2-9Z-tQx" customClass="PlayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kCg-8t-CJ1"/>
+                        <viewControllerLayoutGuide type="bottom" id="69i-kG-eng"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bqr-om-Dsz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jel-fA-dPJ" userLabel="PlayVideoView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Jel-fA-dPJ" secondAttribute="height" multiplier="4:3" id="b7j-Vh-iIi"/>
+                                </constraints>
+                            </view>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QG1-Lp-JI5">
+                                <rect key="frame" x="0.0" y="240" width="320" height="328"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72L-D9-iHL">
+                                <rect key="frame" x="269" y="25" width="36" height="34"/>
+                                <state key="normal" title="关闭">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.49803921569999998" green="0.49803921569999998" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backAction:" destination="eg2-9Z-tQx" eventType="touchUpInside" id="8y9-vf-Kav"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jel-fA-dPJ" firstAttribute="leading" secondItem="bqr-om-Dsz" secondAttribute="leading" id="2xy-zI-8y5"/>
+                            <constraint firstItem="72L-D9-iHL" firstAttribute="top" secondItem="kCg-8t-CJ1" secondAttribute="bottom" constant="5" id="42g-IL-8XF"/>
+                            <constraint firstAttribute="trailing" secondItem="72L-D9-iHL" secondAttribute="trailing" constant="15" id="5AZ-UV-YgG"/>
+                            <constraint firstItem="QG1-Lp-JI5" firstAttribute="top" secondItem="Jel-fA-dPJ" secondAttribute="bottom" id="BwQ-pl-kZg"/>
+                            <constraint firstItem="QG1-Lp-JI5" firstAttribute="leading" secondItem="bqr-om-Dsz" secondAttribute="leading" id="Ifk-Em-jRv"/>
+                            <constraint firstItem="69i-kG-eng" firstAttribute="top" secondItem="QG1-Lp-JI5" secondAttribute="bottom" id="KU2-9U-mTs"/>
+                            <constraint firstAttribute="trailing" secondItem="QG1-Lp-JI5" secondAttribute="trailing" id="QYG-Bt-yIM"/>
+                            <constraint firstItem="Jel-fA-dPJ" firstAttribute="top" secondItem="bqr-om-Dsz" secondAttribute="top" id="a1u-vB-hSv"/>
+                            <constraint firstAttribute="trailing" secondItem="Jel-fA-dPJ" secondAttribute="trailing" id="m76-UJ-dWc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uu3-kj-OMm">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="gnX-kP-GBB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BL1-qh-1FR">
+                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cap"/>
+                                <connections>
+                                    <action selector="capAction:" destination="eg2-9Z-tQx" eventType="touchUpInside" id="R04-aO-eF4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="chatRoomView" destination="QG1-Lp-JI5" id="wYg-42-27t"/>
+                        <outlet property="playVideoView" destination="Jel-fA-dPJ" id="mLh-MI-UCc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idA-GM-Wi6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805" y="-273"/>
         </scene>
     </scenes>
     <resources>
