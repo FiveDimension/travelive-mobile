@@ -184,4 +184,5 @@ angular.module( 'Travelive', [
 //
 .factory( 'ItineraryService',        require( './services/itineraryService' ) )
 .factory( 'ApiService',            require( './services/ApiService'     ) )
+.factory( 'SelectAttractionService', require( './services/SelectAttractionService' ) )
 ;

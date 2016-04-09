@@ -1,0 +1,97 @@
+.hotel-keyword-block {
+  margin: 0.4rem;
+  background: #fff;
+  box-shadow: 0 0 0.05rem 0.05rem #ececec;
+}
+
+.hotel-g-list, .hotel-g-list li, .hotel-cond-bar, .hotel-p-s-filter dd, .hotel-p-s-filter, .hotel-dpage-list, .hotel-dpage-gct li, .cui-tab-mod, .hotel-hyd-comments .bd .hyd-total dt, .hotel-hyd-tag span, .hotel-hyd-content li, .hotel-detail-layer .layer-bd li, .cui-f-layer, .cui-f-layer li, .cui_cldweek, .hotel-date-rooms, .cui-city-itmes .cui-city-n li, .cui-city-itmes .cui-city-t, .hotel-cominlinelist, .hotel-cominlinelist li, .hotel-comlist, .hotel-comlist li, .hotel-comnorlist, .hotel-comnorlist li, .hotel-comnorlist .hotel-m li, .hotel-mysite, .hotel-detail-layer .layer-bd li.bt-border, .showimgbar, .hotel-addrcitytit, .hotel-addrcitydtl, .hotel-en-current .hotel-m .en-p, .hotel-date-morning, .cui-roller-btns, .cui-roller-btns .cui-flexbd:nth-of-type(2), .cui-select-view li, .cui-city-associate li, .hotel-border, .hotel-t-b-border, .hotel-t-border, .hotel-b-border, .hotel-l-border, .hotel-msg, .hotel-joinctrip-btn, .hotel-join-h, .hui-filter-sort ul, .hui-filter-sort li, .hui-filter-subsort ul, .hui-filter-unit li, .hotel-inn-list li, .hotel-fixed-top, .hotel-voucheruser-item li, .hotel-room-item .hotel-room-list, .popup-operate ul li, .hotel-keyword-filter li {
+  border-style: solid;
+  border-color: #ddd;
+  border-image: url(ddata:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
+  -webkit-border-image: url(data:image/gif;base64,R0lGODlhBQAFAIABAN3d3f///yH5BAEAAAEALAAAAAAFAAUAAAIHhB9pGatnCgA7) 2 stretch;
+}
+
+.hotel-g-list li, .cui-tab-mod, .cui_cldweek, .cui-city-itmes .cui-city-n li, .cui-city-itmes .cui-city-t, .hotel-detail-layer .layer-bd li.bt-border, .hotel-date-morning, .hotel-b-border, .cui-select-view li, .cui-city-associate li, .hotel-fixed-top, .hotel-room-item .hotel-room-list {
+  border-width: 0 0 1px;
+  border-bottom: #bcbcbc 1px solid \9;
+}
+
+.hotel-g-list, .hotel-cond-bar, .hotel-p-s-filter, .hotel-dpage-gct li, .hotel-hyd-content li, .hotel-detail-layer .layer-bd li, .hotel-date-rooms, .cui-f-layer li, .cui-roller-btns, .hotel-t-border, .booking-bd-items {
+  border-width: 1px 0 0;
+  border-top: #bcbcbc 1px solid \9;
+}
+
+.hotel-p-s-filter dd, .hotel-hyd-tag span, .hotel-border {
+  border-width: 1px;
+  border: 1px solid #dbdbdb \9;
+}
+
+.cui-f-layer {
+  border-width: 0 1px 1px 1px;
+  border: 1px solid #dbdbdb \9;
+}
+
+.hotel-dpage-list, .hotel-t-b-border {
+  border-width: 1px 0;
+}
+
+.hotel-hyd-comments .bd .hyd-total dt {
+  border-width: 0 1px 0 0;
+  border-right: #bcbcbc 1px solid \9;
+}
+
+.hotel-keyword-block p {
+  position: relative;
+  font-size: 0.65rem;
+  color: #999;
+  line-height: 1.65rem;
+  margin-left: 1.9rem;
+}
+
+.hotel-keyword-block p .clearall {
+  position: absolute;
+  right: 0;
+  color: #099fde;
+  width: 2.5rem;
+  height: 1.65rem;
+  text-align: center;
+}
+
+.hotel-keyword-block p.hotel-arr:before {
+  border-color: #099fde;
+  right: 0.6rem;
+}
+
+.hotel-keyword-block p.hotel-arr.hotel-arrdown:before {
+  margin-top: -0.3rem;
+}
+
+.hotel-keyword-block p i {
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  margin-top: -0.5rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.1rem;
+}
+
+.hotel-keyword-filter {
+  overflow: hidden;
+  li {
+    float: left;
+    width: 25%;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    padding: 0 0.4rem;
+    font-size: 0.6rem;
+    box-sizing: border-box;
+    border-width: 1px 1px 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-align: center;
+  }
+
+}
