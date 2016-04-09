@@ -8,19 +8,24 @@
  */
 module.exports = [
   '$scope',
-  'ExampleService',
+  'SelectAttractionService',
   '$state',
   '$ionicHistory',
-  '$http',
-  '$stateParams',
 
-  function ($scope, ExampleService, $state, $ionicHistory, $http, $stateParams) {
+  function ($scope, SelectAttractionService, $state, $ionicHistory) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
+
     $scope.input = {};
     $scope.input.title="千岛湖直播";
     $scope.input.jingdian="千岛湖";
+
+    $scope.selectAttraction = function(){
+      SelectAttractionService.selectAttraction({}).then(function(r){
+        $scope.input.jingdian= r.title;
+      });
+    };
 
     $scope.startLive = function () {
       console.log("startLive", $scope.jingdian);

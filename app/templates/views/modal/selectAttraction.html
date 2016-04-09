@@ -1,0 +1,56 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <input type="search" placeholder="搜索目的地" style="width: 320px;" ng-model="input.keyWord" ng-keypress="onKeypress($event)">
+    <button class="button" ng-click="closeModal()">取消</button>
+  </ion-header-bar>
+  <ion-content id="search-result" style="background-color: #f5f5f5;">
+    <div ng-if="!result">
+      <!--<ul class="list">-->
+        <!--<li class="item" ng-repeat="h in rh" ng-click="goSearch(h)">{{h}}</li>-->
+        <!--<li class="item" style="text-align: center;" ng-click="clearHistory()">清楚历史</li>-->
+      <!--</ul>-->
+      <section class="hotel-keyword-block" ng-if="rh.length!==0">
+        <p><i class="hotel-keyword-icon2"></i>搜索历史<span class="js_clear clearall" ng-click="clearHistory()">清空</span></p>
+        <ul class="hotel-keyword-filter">
+          <li ng-repeat="h in rh track by $index" ng-click="goSearch(h)">{{h}}</li>
+        </ul>
+      </section>
+
+      <section class="hotel-keyword-block">
+        <p><i class="hotel-keyword-icon2"></i>热门推荐</p>
+        <ul class="hotel-keyword-filter">
+          <li ng-click="goSearch('迪士尼')">迪士尼</li><li  ng-click="goSearch('外滩')">外滩</li>
+          <li ng-click="goSearch('人民广场')">人民广场</li><li  ng-click="goSearch('浦东')">浦东</li>
+          <li ng-click="goSearch('徐家汇')">徐家汇</li><li ng-click="goSearch('锦江之星')">锦江之星</li>
+          <li ng-click="goSearch('汉庭')">汉庭</li><li ng-click="goSearch('全季')">全季</li>
+        </ul>
+      </section>
+
+      <section class="hotel-keyword-block">
+        <p><i class="hotel-keyword-icon2"></i>地铁火车站</p>
+        <ul class="hotel-keyword-filter">
+          <li ng-click="goSearch('迪士尼')">迪士尼</li><li  ng-click="goSearch('外滩')">外滩</li>
+          <li ng-click="goSearch('人民广场')">人民广场</li><li  ng-click="goSearch('浦东')">浦东</li>
+          <li ng-click="goSearch('徐家汇')">徐家汇</li><li ng-click="goSearch('锦江之星')">锦江之星</li>
+          <li ng-click="goSearch('汉庭')">汉庭</li><li ng-click="goSearch('全季')">全季</li>
+        </ul>
+      </section>
+
+      <section class="hotel-keyword-block">
+        <p><i class="hotel-keyword-icon2"></i>主题特色</p>
+        <ul class="hotel-keyword-filter">
+          <li>亲子</li><li>情侣</li> <li>商旅</li><li>踏青</li>
+          <li>海边</li><li>登山</li><li></li><li></li>
+        </ul>
+      </section>
+    </div>
+    <div ng-if="result" class="list" style="background-color: #AAD1D8;">
+        <a class="item item-thumbnail-left" ng-repeat="r in result" ng-click="doSelect(r);">
+          <img src="images/thumbnail/cover.jpg">
+          <h2>{{r.title}}</h2>
+          <p>Nine Inch Nails</p>
+        </a>
+    </div>
+
+  </ion-content>
+</ion-modal-view>
