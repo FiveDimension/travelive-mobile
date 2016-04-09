@@ -30,33 +30,52 @@ module.exports = [
       };
 
 
+      var saveByKey = function(key, item) {
+        console.log('saveByKey', "itinerary-item-" + key, JSON.stringify(item));
+        window.localStorage.setItem("itinerary-item-" + key, JSON.stringify(item));
+      };
+
       var getByKey = function(key) {
         var itinerary =  window.localStorage.getItem("itinerary-item-" + key);
         if (itinerary) {
-          return JSON.parse(list);
+          return JSON.parse(itinerary);
         }
         return undefined;
       };
 
       var addByKey = function(key, vp_id) {
-        var item = get(key);
+        var item = getByKey(key);
+        if(!item) {
+          item = {name: 'cache', vp_ids: []};
+        }
         if(item) {
           if(item.vp_ids.indexOf(vp_id) == -1){
             item.vp_ids.push(vp_id);
           }
+          saveByKey(key, item);
           return true;
         }
         return false;
       };
 
+
+      var exitedByKey = function(key, vp_id) {
+        var item = getByKey(key);
+        if(item) {
+          return item.vp_ids.indexOf(vp_id) != -1;
+        }
+        return false;
+      };
+
       var removeByKey = function(key, vp_id) {
-        var item = get(key);
+        var item = getByKey(key);
         if(item) {
           var i = item.vp_ids.indexOf(vp_id);
           if(i == -1){
             return false;
           }
-          item.vp_ids.splice(i, 1, 0);
+          item.vp_ids.splice(i, 1);
+          saveByKey(key, item);
           return true;
         }
         return false;
@@ -83,7 +102,8 @@ module.exports = [
         getAllKey: getAllKey,
         getByKey: getByKey,
         addByKey: addByKey,
-        removeByKey: removeByKey
+        removeByKey: removeByKey,
+        exitedByKey: exitedByKey,
       };
     }
 ];

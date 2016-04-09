@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <button class="button"  ng-click="closeModal()">取消</button>
+        <h1 class="title">添加到行程</h1>
+        <button class="button">确定</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    选择添加到的行程
+                </div>
+                <select ng-model="selected">
+                    <option>行程1</option>
+                    <option >行程1</option>
+                    <option selected>新建</option>
+                </select>
+            </label>
+            <label class="item item-input" ng-if="selected == '新建'">
+                <span class="input-label">新建行程名</span>
+                <input type="text">
+            </label>
+        </div>
+    </ion-content>
+</ion-modal-view>
