@@ -48,7 +48,7 @@ module.exports = [
             pluginToolBar: true,
             showInfoWindow: false,
             showAddButton: false,
-            showPolyline: true,
+            showPolyline: true
           },
           markers: []
         };
@@ -64,6 +64,19 @@ module.exports = [
         }
       });
     });
+
+    $scope.del = function(maker) {
+      var vpId = maker.vp_id;
+      ItineraryService.removeByKey(key, vpId);
+      var i = $scope.currentMap.markers.indexOf(marker);
+      if(i != -1) {
+        $scope.currentMap.markers.splice(i, 1);
+      }
+    };
+
+    $scope.add = function() {
+      //TODO: 景点选择框
+    }
 
     $scope.$watch('currentMap.markers', function(now, old){
       console.log('$watch.currentMap.markers');
