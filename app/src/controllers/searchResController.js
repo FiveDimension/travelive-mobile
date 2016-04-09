@@ -13,8 +13,9 @@ module.exports = [
   '$ionicHistory',
   '$http',
   '$stateParams',
+  'ItineraryService',
 
-  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams) {
+  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams, ItineraryService) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };

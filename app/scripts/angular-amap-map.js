@@ -42,7 +42,6 @@ angular.module('l42y.amap.map', [
             }
             for (var i = 0; i < markers.length; i++) {
               var marker = markers[i];
-              console.log(marker);
               var m = new $window.AMap.Marker(marker);
               m.setMap(map);
               if (options.showInfoWindow) {

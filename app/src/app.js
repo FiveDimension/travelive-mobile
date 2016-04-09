@@ -139,7 +139,7 @@ angular.module( 'Travelive', [
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/itinerayEdit.html',
+            templateUrl: '../templates/views/itineraryEdit.html',
             controller: 'ItineraryEditController'
           }
         }
@@ -182,6 +182,6 @@ angular.module( 'Travelive', [
 
 // Angular module services
 //
-.factory( 'ExampleService',        require( './services/ExampleService' ) )
+.factory( 'ItineraryService',        require( './services/itineraryService' ) )
 .factory( 'ApiService',            require( './services/ApiService'     ) )
 ;
