@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PublishViewController : UIViewController
-
-
+-(void)putPublishUrl:(NSString*)publishUrl;
+-(void)putOption:(NSDictionary*)optionDir;
 @end
 

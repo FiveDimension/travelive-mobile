@@ -74,13 +74,13 @@ angular.module( 'Travelive', [
           }
         }
       })
-      .state('app.live', {
-        url: '/live/:id',
+      .state('app.startLive', {
+        url: '/startLive',
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/live.html',
-            controller: 'LiveController'
+            templateUrl: 'templates/views/liveSetting.html',
+            controller: 'LiveSettingController'
           }
         }
       })
@@ -166,7 +166,7 @@ angular.module( 'Travelive', [
 .controller( 'SettingsController',      require('./controllers/settingsController') )
 .controller( 'SpotController',          require('./controllers/spotController') )
 .controller( 'SpotsController',         require('./controllers/spotsController') )
-.controller( 'LiveController',         require('./controllers/liveController') )
+.controller( 'LiveSettingController',   require('./controllers/liveSettingController') )
 .controller( 'LocationController',         require('./controllers/locationController') )
 
 // Angular module services
