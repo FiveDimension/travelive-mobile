@@ -8,7 +8,7 @@
     "ngCordova": "~0.1.23-alpha",
     "angular-resource": "~1.4.8",
     "ionic": "~1.2.1",
-    "angular-amap-map": "L42y/angular-amap-map#~0.2.1"
+    "angular-amap": "L42y/angular-amap#~0.1.0"
   },
   "resolutions": {
     "angular": "1.4.8"

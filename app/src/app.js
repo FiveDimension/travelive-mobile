@@ -74,6 +74,16 @@ angular.module( 'Travelive', [
           }
         }
       })
+      .state('app.spot', {
+        url: '/spot',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/spot.html',
+            controller: 'SpotController'
+          }
+        }
+      })
       .state('app.spots', {
         url: '/spots',
         cache: true,
@@ -134,7 +144,8 @@ angular.module( 'Travelive', [
 .controller( 'ItineraryController',     require('./controllers/itineraryController') )
 .controller( 'ItineraryEditController', require('./controllers/itineraryEditController') )
 .controller( 'SettingsController',      require('./controllers/settingsController') )
-.controller( 'SpotsController',         require('./controllers/spotsEditController') )
+.controller( 'SpotController',          require('./controllers/spotController') )
+.controller( 'SpotsController',         require('./controllers/spotsController') )
 
 // Angular module services
 //

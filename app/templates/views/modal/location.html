@@ -1,0 +1,13 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <button class="button"  ng-click="closeModal()">取消</button>
+    </ion-header-bar>
+    <ion-content>
+        <!--<baidu-map options="mapOptions" style="width: 100%; height: 600px; display: block;"></baidu-map>-->
+        <div style="height: 600px;"
+             amap-map
+             amap-map-options="modelSpot.mapOptions"
+             amap-map-marker="modelSpot.marker">
+        </div>
+    </ion-content>
+</ion-modal-view>
