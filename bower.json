@@ -8,7 +8,8 @@
     "ngCordova": "~0.1.23-alpha",
     "angular-resource": "~1.4.8",
     "ionic": "~1.2.1",
-    "angular-amap": "L42y/angular-amap#~0.1.0"
+    "angular-amap": "L42y/angular-amap#~0.1.0",
+    "angular-sortable-view": "~0.0.15"
   },
   "resolutions": {
     "angular": "1.4.8"

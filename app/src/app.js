@@ -19,7 +19,8 @@ angular.module( 'Travelive', [
   'ngCordova',
   'ngResource',
   //'baiduMap',
-  'l42y.amap.map'
+  'l42y.amap.map',
+  'angular-sortable-view'
 ] )
 .run( [
   '$ionicPlatform',
@@ -91,6 +92,16 @@ angular.module( 'Travelive', [
           'viewContent': {
             templateUrl: 'templates/views/location.html',
             controller: 'LocationController'
+          }
+        }
+      })
+      .state('app.itineraryMap', {
+        url: '/itinerary_map?name',
+        cache: true,
+        views: {
+          'viewContent': {
+            templateUrl: 'templates/views/itineraryMap.html',
+            controller: 'ItineraryMapController'
           }
         }
       })
@@ -173,12 +184,13 @@ angular.module( 'Travelive', [
 .controller( 'DiscoveryController',     require('./controllers/discoveryController') )
 .controller( 'ItineraryController',     require('./controllers/itineraryController') )
 .controller( 'ItineraryEditController', require('./controllers/itineraryEditController') )
+.controller( 'ItineraryMapController',  require('./controllers/itineraryMapController') )
 .controller( 'SettingsController',      require('./controllers/settingsController') )
 .controller( 'SpotController',          require('./controllers/spotController') )
 .controller( 'SpotsController',         require('./controllers/spotsController') )
-.controller( 'LiveSettingController',         require('./controllers/liveSettingController') )
-.controller( 'LocationController',         require('./controllers/locationController') )
-.controller( 'SearchResController',         require('./controllers/searchResController') )
+.controller( 'LiveSettingController',   require('./controllers/liveSettingController') )
+.controller( 'LocationController',      require('./controllers/locationController') )
+.controller( 'SearchResController',     require('./controllers/searchResController') )
 
 // Angular module services
 //

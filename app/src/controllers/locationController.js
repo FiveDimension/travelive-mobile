@@ -18,6 +18,6 @@ module.exports = [
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
-    $scope.currentMap = $rootScope.currentMap;
+    $scope.currentMap = $rootScope.CurrentMap;
   }
 ];

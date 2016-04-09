@@ -29,7 +29,7 @@ module.exports = [
     $scope.viewpoint = '';
 
     $scope.doSearch = function () {
-      //$rootScope.currentMap = {
+      //$rootScope.CurrentMap = {
       //  topic: "千岛湖：绿水青山与翠岛",
       //  photo: "http://inspiration.chanyouji.cn/InspirationActivity/5285/cc55afcb48aa67b18b410ebb0e7128f9.jpg?imageMogr2/crop/!2953x1772a539a0/thumbnail/800",
       //  introduce: "位于杭州淳安的千岛湖，山青水绿，是江浙沪周边度假的好去处。游玩千岛湖主要坐游船徜徉湖上和登岛游览，不仅湖上风光秀美，湖中每个岛的景致都各有特色。 千岛湖按照游船线路为中心湖区、东南湖区，西南湖区则有龙川湾、芹川村，可以观赏湿地和古村风光。除了观光景点，千岛湖的环湖公路也特别适合骑行，岛上酒店和咨询点就可以租车。",
@@ -62,7 +62,7 @@ module.exports = [
       $http.post('http://58.40.126.144/api/searchVp', postData).success(function (data) {
         console.log(data);
         if(data.length == 0) return;
-        $rootScope.currentMap = {
+        $rootScope.CurrentMap = {
           vp_id: data[0].vp_id,
           topic: data[0].name,
           introduce: data[0].introduce,
@@ -80,14 +80,14 @@ module.exports = [
         };
 
         for (var i = 0; i < data.length; i++) {
-          $rootScope.currentMap.markers.push({
+          $rootScope.CurrentMap.markers.push({
             position: [data[i].pin.location.lon, data[i].pin.location.lat],
             image: data[i].photo_url,
             href: '#/app/spot/' + data[i].vp_id ,
             vpId: data[i].vp_id
           })
         }
-        console.log($rootScope.currentMap);
+        //console.log($rootScope.CurrentMap);
         $state.go('app.searchRes');
       });
 

@@ -22,15 +22,15 @@
                 <div class="item item-image">
                     <img ng-src="{{itinerary.image}}">
                 </div>
-                <a class="item bar-light" href="#">
+                <a class="item bar-light" ui-sref="app.itineraryMap({name: itinerary.name})" >
                     <!--<i class="icon ion-music-note"></i>-->
                     <span ng-bind="itinerary.name"></span>
                 </a>
             </div>
 
-            <button class="button button-block button-outline button-positive" ng-click="createItinerary()">
-                添  加
-            </button>
+            <!--<button class="button button-block button-outline button-positive" ng-click="createItinerary()">-->
+                <!--添  加-->
+            <!--</button>-->
         </div>
     </ion-content>
 </ion-view>

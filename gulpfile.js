@@ -143,7 +143,7 @@ gulp.task('scripts', ['browserify'], function() {
     }));
 
   var scriptStream = gulp
-    .src( ['baiduMap.js', 'bundle.js', 'bundle.js.map', 'configuration.js' ,'templates.js', 'angular-amap-map.js' ], { cwd: 'app/scripts' })
+    .src( ['bundle.js', 'bundle.js.map', 'configuration.js' ,'templates.js', 'angular-amap-map.js' ], { cwd: 'app/scripts' })
 
     .pipe(plugins.if(!build, plugins.changed(dest)));
 
