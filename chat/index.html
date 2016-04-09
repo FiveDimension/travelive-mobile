@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 73%; margin-right: .5%; }
+      form button { width: 14%; background: rgb(130, 224, 255); border: none; padding: 10px; margin:0 2px; }
+      form button#like { width: 9%;  }
+      #messages { list-style-type: none; margin: 0; padding: 0; margin-bottom: 40px;}
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button><button id="like">赞</button>
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/jquery.js"></script>
+    <script>
+      var socket = io();
+      $('form').submit(function(){
+        var msg =  $('#m').val().trim();
+        if(msg){
+          socket.emit('new message', msg);
+          $('#m').val('');
+        }
+        return false;
+      });
+      $('#like').click(function(){
+        socket.emit('new like');
+      });
+
+      socket.on('connect', function(data){
+        var q = parseQuery(window.location.search);
+        socket.emit('join room', {
+          room: q.rid,
+          user: q.user,
+          uid: q.uid
+        });
+      });
+
+      socket.on('receive message', function(data){
+        $('#messages').append($('<li>').html(data.user + ": " + data.msg));
+        window.scrollTo(0,document.body.scrollHeight);
+      });
+
+      socket.on('receive like', function(data){
+        $('#messages').append($('<li>').html(data.user + " <span style='color: red;'>给了赞</span>"));
+        window.scrollTo(0,document.body.scrollHeight);
+      });
+
+      function parseQuery(qstr) {
+        var query = {};
+        var a = qstr.substr(1).split('&');
+        for (var i = 0; i < a.length; i++) {
+          var b = a[i].split('=');
+          query[decodeURIComponent(b[0])] = decodeURIComponent(b[1] || '');
+        }
+        return query;
+      }
+    </script>
+  </body>
+</html>

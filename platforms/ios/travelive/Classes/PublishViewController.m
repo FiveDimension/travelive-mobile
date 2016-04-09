@@ -39,7 +39,12 @@
     self.jingDianLabel.text = [self.option objectForKey:@"jingdian"];
     self.chatRoomView.backgroundColor = [UIColor clearColor];
     self.chatRoomView.opaque = NO;
-    [self.chatRoomView loadHTMLString:@"<div>111</div><div>222</div><div>333</div>" baseURL:[NSURL URLWithString:@"http://127.0.0.1/"]];
+//    [self.chatRoomView loadHTMLString:@"<div>111</div><div>222</div><div>333</div>" baseURL:[NSURL URLWithString:@"http://127.0.0.1/"]];
+    
+    NSURL *url = [NSURL URLWithString:[self.option objectForKey:@"chatUrl"]];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.chatRoomView loadRequest:requestObj];
+    
     
     //隐藏导航条
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];

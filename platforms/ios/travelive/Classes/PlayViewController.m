@@ -27,7 +27,11 @@
     
     self.chatRoomView.backgroundColor = [UIColor clearColor];
     self.chatRoomView.opaque = NO;
-    [self.chatRoomView loadHTMLString:@"<div>111</div><div>222</div><div>333</div><input type='text' style='position: fixed; bottom: 0; left: 0;'>" baseURL:[NSURL URLWithString:@"http://127.0.0.1/"]];
+//    [self.chatRoomView loadHTMLString:@"<div>111</div><div>222</div><div>333</div><input type='text' style='position: fixed; bottom: 0; left: 0;'>" baseURL:[NSURL URLWithString:@"http://127.0.0.1/"]];
+    
+    NSURL *url = [NSURL URLWithString:[self.option objectForKey:@"chatUrl"]];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.chatRoomView loadRequest:requestObj];
     
     //状态栏透明
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];

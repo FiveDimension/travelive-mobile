@@ -31,7 +31,8 @@ module.exports = [
       console.log("startLive", $scope.jingdian);
       var option = {
         title: $scope.input.title,
-        jingdian:  $scope.input.jingdian
+        jingdian:  $scope.input.jingdian,
+        chatUrl: "http://182.254.135.18:3000/viewer?user=kk&uid=2&rid=2"
       };
       window.open("rtmp://123.56.225.149/myapp/b", "_live", JSON.stringify(option));
     };
