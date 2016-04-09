@@ -1,0 +1,35 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <input type="search" placeholder="搜索目的地" style="width: 320px;" ng-model="input.keyWord" ng-keypress="onKeypress($event)">
+    <button class="button" ng-click="closeModal()">取消</button>
+  </ion-header-bar>
+  <ion-content id="search-result">
+    <div ng-if="!result && rh.length>0">
+      <ul class="list">
+        <li class="item" ng-repeat="h in rh" ng-click="goSearch(h)">{{h}}</li>
+        <li class="item" style="text-align: center;" ng-click="clearHistory()">清楚历史</li>
+      </ul>
+    </div>
+    <div ng-if="result" style="background-color: #AAD1D8;">
+      <div class="list">
+        <a class="item" style="padding: 2px 0 2px 10px;">目的地</a>
+        <a class="item item-thumbnail-left" href="#" ng-repeat="md in result.mdd" ng-click="openMdd(md);">
+          <img src="images/thumbnail/cover.jpg">
+          <h2>{{md.title}}</h2>
+          <p>Nine Inch Nails</p>
+        </a>
+        <a class="item" style="text-align: center;padding: 5px;color: #49aec9;" ng-click="moreMdd();">更多</a>
+      </div>
+      <div>
+        <a class="item" style="padding: 2px 0 2px 10px;">行程</a>
+        <a class="item item-thumbnail-left" href="#"  ng-repeat="x in result.xc" ng-click="openXc(x);">
+          <img src="images/thumbnail/cover.jpg">
+          <h2>{{x.title}}</h2>
+          <p>Nine Inch Nails</p>
+        </a>
+        <a class="item" style="text-align: center;padding: 5px;color: #49aec9;"  ng-click="moreXc();" >更多</a>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-modal-view>
