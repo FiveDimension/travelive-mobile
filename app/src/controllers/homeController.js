@@ -13,6 +13,8 @@ module.exports = [
 
     function( $scope, ExampleService, $state)
     {
-
+      $scope.onFocus = function(){
+        console.log("onFocus");
+      };
     }
 ];
