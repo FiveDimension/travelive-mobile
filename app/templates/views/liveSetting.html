@@ -23,7 +23,8 @@
         <!--<input type="text" placeholder="Email">-->
         <!--</label>-->
         <div class="item">
-          <button class="button button-block button-positive" ng-click="startLive()">开始直播</button>
+          <button ng-if="!isOnAir" class="button button-block button-positive" ng-click="startLive()">开始直播</button>
+          <button ng-if="isOnAir" class="button button-block button-positive" ng-click="stopLive()">关闭直播</button>
         </div>
       </div>
     </div>

@@ -25,10 +25,11 @@
             </div>
             <div class="list item" style="padding: 0;">
                 <div class="item title">直播</div>
-                <a class="item item-avatar" ng-repeat="live in spot.lives" ng-click="openVideo(live.st_id)">
+                <a class="item item-avatar" ng-repeat="live in spot.lives" ng-click="openVideo(live)">
                     <img ng-src="{{live.userImage || 'images/thumbnail/EmptyThunbnailPhoto.png'}}">
                     <h2 ng-bind="live.title"></h2>
                     <p  ng-bind="live.userName"></p>
+                    <p ng-if="live.status==='online'">直播中</p>
                     <span ng-click="addFollow($event, live.p_user_id)" style="position: absolute;right: 12px;font-size: 40px;top: 14px;color: #A5A3A3;"><i class="icon ion-heart"></i></span>
                 </a>
                 <div class="item" ng-if="spot.lives.length == 0" >暂时没有直播</div>

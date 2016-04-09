@@ -63,9 +63,17 @@ module.exports = [
       $state.go('app.location');
     };
 
-    $scope.openVideo = function(stream_id) {
-      console.log('openVideo');
-    }
+    $scope.openVideo = function(live) {
+      if(live.status === 'online'){
+        var data = {
+          chatUrl: 'http://182.254.135.18:3000/?user='+ $scope.user.username +
+          "&uid="+ $scope.user.uid +'&rid=' + live.st_id
+        };
+        window.open("rtmp://182.254.135.18/live/" + $scope.st_id, "_playlive", JSON.stringify(data));
+      } else {
+        // TODO openVideo
+      }
+    };
 
     $scope.addFollow = function($event, id) {
       $event.stopPropagation();

@@ -43,20 +43,24 @@ module.exports = [
           "user_id": $scope.user.uid,
           "title": $scope.input.title.trim()
         }).success(function (data){
-          var st_id = data.st_id;
+          $scope.st_id = data.st_id;
           var option = {
             title: $scope.input.title,
             jingdian:  $scope.input.jingdian,
             chatUrl: "http://182.254.135.18:3000/viewer?user="+ $scope.user.username +
-            "&uid="+ $scope.user.uid +"&rid=" + st_id
+            "&uid="+ $scope.user.uid +"&rid=" + $scope.st_id
           };
           $scope.isOnAir = true;
-          window.open("rtmp://182.254.135.18/live/" + st_id, "_live", JSON.stringify(option));
+          window.open("rtmp://182.254.135.18/live/" + $scope.st_id, "_live", JSON.stringify(option));
         });
       }
 
       $scope.stopLive = function(){
-        // TODO
+        $http.post('http://58.40.126.144/api/closeStream', {st_id: String($scope.st_id)}).success(function(data){
+          if(data.message){
+            $scope.isOnAir = false;
+          }
+        });
       };
     };
   }
