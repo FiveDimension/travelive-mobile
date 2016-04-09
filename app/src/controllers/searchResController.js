@@ -108,17 +108,19 @@ module.exports = [
         is.name = name;
         ItineraryService.saveByKey(name, is);
         $rootScope.currentItinerary = is;
+        $state.go('app.itineraryMap', {name: name});
       } else {
-        for(var i = 0; is.vp_ids < is.vp_ids.length; i++) {
+        console.log(is);
+        for(var i = 0; i < is.vp_ids.length; i++) {
           var vp_id =  is.vp_ids[i];
+          console.log('addByKey', selcet, vp_id);
           ItineraryService.addByKey(selcet, vp_id);
         }
         $rootScope.currentItinerary = ItineraryService.getByKey(selcet);
+        $state.go('app.itineraryMap', {name: selcet});
       }
       ItineraryService.delKey('cache');
       console.log('modalOk');
-      $state.go('app.itineraryMap', {name: name});
-
       $scope.closeModal();
     };
   }

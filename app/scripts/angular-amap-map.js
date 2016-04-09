@@ -29,6 +29,7 @@ angular.module('l42y.amap.map', [
           console.error('markers is undefined');
           return;
         }
+        var lineArr = [];
         for (var i = 0; i < markers.length; i++) {
           var marker = markers[i];
           var m = new $window.AMap.Marker(marker);
@@ -43,6 +44,7 @@ angular.module('l42y.amap.map', [
             infowindowMarker.setMap(map);
           }
 
+          lineArr.push(marker.position);
           if (options.showAddButton) {
             var addM  = document.createElement('A');
             (function(marker){
@@ -72,6 +74,18 @@ angular.module('l42y.amap.map', [
             });
             addButtonMarker.setMap(map);
           }
+        }
+
+        if (options.showPolyline) {
+          var polyline = new $window.AMap.Polyline({
+            path: lineArr,          //设置线覆盖物路径
+            strokeColor: "#FF0000", //线颜色
+            strokeOpacity: 1,       //线透明度
+            strokeWeight: 5,        //线宽
+            strokeStyle: "solid",   //线样式
+            strokeDasharray: [10, 5] //补充线样式
+          });
+          polyline.setMap(map);
         }
       }
 

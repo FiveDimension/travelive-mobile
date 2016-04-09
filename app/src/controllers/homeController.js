@@ -12,11 +12,13 @@ module.exports = [
   '$ionicModal',
   '$rootScope',
   '$http',
+  '$ionicHistory',
   'SelectDestinationService',
   'SelectAttractionService',
-
-  function ($scope, $state, $ionicModal, $rootScope, $http, SelectDestinationService, SelectAttractionService) {
+  function ($scope, $state, $ionicModal, $rootScope, $http, $ionicHistory, SelectDestinationService, SelectAttractionService) {
     $scope.input = {};
+    $ionicHistory.clearHistory();
+    console.log($ionicHistory.viewHistory());
 
     $scope.selectDest = function () {
       SelectDestinationService.selectDestination().then(function(r){
