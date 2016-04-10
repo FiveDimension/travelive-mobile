@@ -13,8 +13,9 @@ module.exports = [
   '$ionicHistory',
   '$http',
   '$stateParams',
+  'PlayHistoryService',
 
-  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams) {
+  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams, PlayHistoryService) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
@@ -69,6 +70,8 @@ module.exports = [
           chatUrl: 'http://182.254.135.18:3000/?user='+ $scope.user.username +
           "&uid="+ $scope.user.uid +'&rid=' + live.st_id
         };
+        live.playTime = new Date().getTime();
+        PlayHistoryService.addPlayHistory(live);
         window.open("rtmp://182.254.135.18/live/" + live.st_id, "_playlive", JSON.stringify(data));
       } else {
         window.open('http://182.254.135.18:8080/record/'+ live.st_id +'.mp4', "", "location=yes");

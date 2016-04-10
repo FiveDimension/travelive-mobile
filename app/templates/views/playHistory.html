@@ -5,18 +5,12 @@
     </ion-header-bar>
 
     <ion-content>
-        <div class="list">
-          <a class="item item-thumbnail-left">
-            <img src="images/home/beijing-portrait.jpg">
-            <h2>SOHO2</h2>
-            <p>Venkman</p>
-            <p>1天前</p>
-          </a>
-          <a class="item item-thumbnail-left">
+        <div class="list" ng-repeat="lv in historyList">
+          <a class="item item-thumbnail-left" ng-click="playST(lv)">
             <img src="images/home/shanghai-portrait.jpg">
-            <h2>SOHO1</h2>
-            <p>Venkman</p>
-            <p>5天前</p>
+            <h2>{{lv.title}}</h2>
+            <p>{{lv.username}}</p>
+            <p>{{lv.timeshift}}</p>
           </a>
 
         </div>
