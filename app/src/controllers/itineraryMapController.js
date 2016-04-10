@@ -39,8 +39,7 @@ module.exports = [
     };
 
     var getData = function() {
-      $http.post('http://58.40.126.144/api/createRoute', {"vp_id_list":ii.vp_ids} ).success(function(data){
-        var route = data;
+
         $http.post('http://58.40.126.144/api/getVpList', {"vp_id_list":ii.vp_ids} ).success(function(data){
           console.log(data);
           if(data.length == 0) return;
@@ -73,13 +72,15 @@ module.exports = [
               voice_url: data[i].voice_url
             };
             markerMap[m.vpId] = m;
+          }
+          $http.post('http://58.40.126.144/api/createRoute', {"vp_id_list":ii.vp_ids} ).success(function(route){
+            for(var i = 0; i < route.length; i++) {
+              $scope.currentMap.markers.push(markerMap[route[i]]);
+            }
+            $rootScope.$broadcast('refreshAMapMarker', $scope.currentMap.mapOptions, angular.copy($scope.currentMap.markers));
+          })
 
-          }
-          for(var i = 0; i < route.length; i++) {
-            $scope.currentMap.markers.push(markerMap[route[i]]);
-          }
         });
-      });
     };
     getData();
 
