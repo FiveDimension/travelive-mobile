@@ -1,20 +1,24 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-positive">
       <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
-        <h1 class="title">推送消息</h1>
+        <h1 class="title">积分商城</h1>
     </ion-header-bar>
 
-    <ion-content>
-      <div class="row clearfix">
-        <div ng-click="goSearch('云南')"><img src="images/home/yunnan-portrait.jpg"><div>云南</div><div class="sub-title">Yunnan</div></div>
-        <div ng-click="goSearch('四川')"><img src="images/home/sichuan-portrait.jpg"><div>四川</div><div class="sub-title">Sichuan</div></div>
-        <div ng-click="goSearch('三亚')"><img src="images/home/yunnan-portrait.jpg"><div>三亚</div><div class="sub-title">Yunnan</div></div>
+    <ion-content id="points-mall">
+      <div class="cat-box">
+        <!--<div class="row clearfix">-->
+          <!--<div ng-click="goSearch('云南')"><img src="images/home/yunnan-portrait.jpg"><div>云南</div><div class="sub-title">Yunnan</div></div>-->
+          <!--<div ng-click="goSearch('四川')"><img src="images/home/sichuan-portrait.jpg"><div>四川</div><div class="sub-title">Sichuan</div></div>-->
+          <!--<div ng-click="goSearch('三亚')"><img src="images/home/yunnan-portrait.jpg"><div>三亚</div><div class="sub-title">Yunnan</div></div>-->
+        <!--</div>-->
+        <div class="row clearfix">
+          <div><img src="images/home/shanghai-portrait.jpg"><div>小礼品</div><div class="sub-title">3000积分</div></div>
+          <div><img src="images/home/yunnan-portrait.jpg"><div>流量包</div><div class="sub-title">10000积分</div></div>
+          <!--<div><img src="images/home/yunnan-portrait.jpg"><div>厦门</div><div class="sub-title">Yunnan</div></div>-->
+        </div>
+
       </div>
-      <div class="row clearfix">
-        <div><img src="images/home/shanghai-portrait.jpg"><div>上海</div><div class="sub-title">Shanghai</div></div>
-        <div><img src="images/home/yunnan-portrait.jpg"><div>北京</div><div class="sub-title">Yunnan</div></div>
-        <div><img src="images/home/yunnan-portrait.jpg"><div>厦门</div><div class="sub-title">Yunnan</div></div>
-      </div>
+
     </ion-content>
 
 </ion-view>
