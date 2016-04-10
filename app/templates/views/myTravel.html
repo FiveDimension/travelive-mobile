@@ -1,10 +1,10 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-positive">
-    <button class="button button-icon icon ion-navicon" menu-toggle="left"></button>
+    <!--<button class="button button-icon icon ion-navicon" menu-toggle="left"></button>-->
         <h1 class="title">我的Travel</h1>
     </ion-header-bar>
 
-    <ion-content>
+    <ion-content  class="has-tabs">
         <div class="list">
           <a class="item item-avatar" ng-if="user">
             <img src="images/thumbnail/EmptyThunbnailPhoto.png">
@@ -22,5 +22,25 @@
 
         </div>
     </ion-content>
-
+    <div class="tabs tabs-icon-top  tabs-positive">
+        <a class="tab-item" ui-sref="app.home">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ui-sref="app.discovery">
+            <i class="icon ion-paper-airplane"></i>
+            热景直播
+        </a>
+        <a class="tab-item open-live" ui-sref="app.startLive">
+            <i class="icon ion-ios-pulse-strong" ></i>
+        </a>
+        <a class="tab-item" ui-sref="app.itinerary">
+            <i class="icon ion-calendar"></i>
+            行程播报
+        </a>
+        <a class="tab-item" ui-sref="app.myTravel">
+            <i class="icon ion-person"></i>
+            我的travel
+        </a>
+    </div>
 </ion-view>
