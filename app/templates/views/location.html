@@ -2,7 +2,7 @@
     <ion-header-bar align-title="left" class="bar-positive" style="position:absolute; background: transparent; border-bottom: none;">
         <button class="button button-icon icon ion-ios-arrow-back ctext-shadow" ng-click="goBack()"></button>
         <!--<h1 class="title" ng-bind="topic"></h1>-->
-        <button class="button button-clear ctext-shadow" ng-click="add()">添加</button>
+        <button  ng-if="!hideSideBar" class="button button-clear ctext-shadow" ng-click="add()">添加</button>
     </ion-header-bar>
     <ion-content style="top:0;" scroll="false">
         <!--<baidu-map options="mapOptions" style="width: 100%; height: 600px; display: block;"></baidu-map>-->
@@ -10,7 +10,7 @@
              amap-map
              ng-model="currentMap">
         </div>
-        <div style="position: absolute; overflow-y: auto; width: 80px;height: 500px;background: rgba(0, 0, 0, 0.6);bottom: 128px;right: 7px;border-radius: 5px; padding: 5px" >
+        <div ng-if="!hideSideBar" style="position: absolute; overflow-y: auto; width: 80px;height: 500px;background: rgba(0, 0, 0, 0.6);bottom: 128px;right: 7px;border-radius: 5px; padding: 5px" >
             <ul ui-sortable ng-model="currentMap.markers" >
                 <li ng-repeat="m in currentMap.markers">
                     <div style="position: relative;">

@@ -9,23 +9,18 @@
 module.exports = [
     '$scope',
     '$state',
-     '$http',
+    '$http',
 
     function( $scope, $state, $http )
     {
-      $scope.isLoading = true;
+
       // just an example...
-      //$scope.fetchRandomText = function() {
-      //  ExampleService.doSomethingAsync()
-      //    .then(ExampleService.fetchSomethingFromServer)
-      //    .then(function(response) {
-      //        $scope.myHTML = response.data.text;
-      //
-      //      // close pull to refresh loader
-      //        $scope.$broadcast('scroll.refreshComplete');
-      //    });
-      //};
-      //$scope.fetchRandomText();
+      $scope.fetchRandomText = function() {
+        getData(function(){
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+      };
+
       $scope.items = [];
       //$timeout(function(){
       //  $scope.isLoading = false;
@@ -54,22 +49,32 @@ module.exports = [
           window.open('http://182.254.135.18:8080/record/'+ live.st_id +'.mp4', "", "location=yes");
         }
       };
+      var getData = function(cb) {
+        $scope.isLoading = true;
+        $http.get('http://58.40.126.144/api/getHotStream').success(function(data){
+          $scope.isLoading = false;
+          $scope.items = [];
+          for(var i =0 ;i< data.length; i++) {
+            var  d = data[i];
+            $scope.items.push({
+              username: d.username,
+              status: d.status,
+              st_id: d.st_id,
+              title: d.title,
+              favorites_count: d.favorites_count,
+              name: d.vp.name,
+              image: d.vp.photo_url
+            });
+          }
+          if(cb) {
+            cb()
+          }
+        });
+      };
 
-      $http.get('http://58.40.126.144/api/getHotStream').success(function(data){
-        $scope.isLoading = false;
-        for(var i =0 ;i< data.length; i++) {
-          var  d = data[i];
-          $scope.items.push({
-            username: d.username,
-            status: d.status,
-            st_id: d.st_id,
-            title: d.title,
-            favorites_count: d.favorites_count,
-            name: d.vp.name,
-            image: d.vp.photo_url
-          });
-        }
-      });
+      getData();
+
+
       $scope.createItinerary = function() {
         console.log($state);
         $state.go('app.itinerary_edit');

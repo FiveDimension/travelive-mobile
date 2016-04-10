@@ -15,20 +15,19 @@ module.exports = [
     {
       $scope.isLoading = true;
       // just an example...
-      //$scope.fetchRandomText = function() {
-      //  ExampleService.doSomethingAsync()
-      //    .then(ExampleService.fetchSomethingFromServer)
-      //    .then(function(response) {
-      //        $scope.myHTML = response.data.text;
-      //
-      //
-      //      // close pull to refresh loader
-      //        $scope.$broadcast('scroll.refreshComplete');
-      //    });
-      //};
+      $scope.fetchRandomText = function() {
+        getData(function(){
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+      };
 
       $timeout(function(){
+        getData();
+      }, 100);
+
+      var getData = function(cb){
         $scope.isLoading = false;
+        $scope.itineraries = [];
         var keys = ItineraryService.getAllKey();
         for(var i = 0; i < keys.length; i++) {
           if (keys[i] == 'cache') {
@@ -41,7 +40,10 @@ module.exports = [
             vpIds: ii.vp_ids
           })
         }
-      }, 1000);
+        if(cb){
+          cb();
+        }
+      };
       $scope.itineraries = [];
       //$scope.createItinerary = function() {
       //  console.log($state);

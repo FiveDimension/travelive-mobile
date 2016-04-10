@@ -101,9 +101,15 @@ module.exports = [
       getData();
     };
 
+    $scope.goMarker = function(marker) {
+      //$scope.currentMap.mapOptions.center = marker.position;
+      $scope.currentMap.mapOptions.zoom = 16;
+      $rootScope.$broadcast('setCenter', marker.position);
+    }
+
     $scope.add = function() {
       //TODO: 景点选择框
-    }
+    };
 
     $scope.$watch('currentMap.markers', function(now, old){
       console.log('$watch.currentMap.markers');

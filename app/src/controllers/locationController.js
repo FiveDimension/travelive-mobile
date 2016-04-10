@@ -19,5 +19,6 @@ module.exports = [
       $ionicHistory.goBack();
     };
     $scope.currentMap = $rootScope.CurrentMap;
+    $scope.hideSideBar = true;
   }
 ];
