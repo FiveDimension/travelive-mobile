@@ -47,27 +47,33 @@ angular.module('l42y.amap.map', [
             infowindowMarker.setMap(map);
           }
 
-          if (options.audio) {
-            var audioM  = document.createElement('A');
-            (function(marker, audioM){
-              audioM.innerHTML = audioButton;
-              audioM.onclick = function() {
-                console.log('audioM', marker.voice_url);
-                //$rootScope.$broadcast('cachedDelVpId', marker.vpId);
-                //TODO: 播放音频
-                var media = $cordovaMedia.newMedia(marker.voice_url);
-                media.play();
-                //var my_media = new Media(audioM.url,
-                //  function () {
-                //    console.log("playAudio() : success");
-                //  },
-                //  function (err) {
-                //    console.log("playAudio() : : "+err);
-                //  });
-                //my_media.play();
-              };
-            })(marker, audioM);
+          if (options.audio && marker.voice_url) {
+              var audioM  = document.createElement('A');
+              (function(marker, audioM){
+                audioM.innerHTML = audioButton;
+                var isPlaying = false;
+                var media;
+                audioM.onclick = function() {
+                  console.log('audioM', marker.voice_url);
+                  //$rootScope.$broadcast('cachedDelVpId', marker.vpId);
+                  //TODO: 播放音频
+                  if(isPlaying) {
+                    media.stop();
+                  } else{
+                    media = $cordovaMedia.newMedia(marker.voice_url);
+                    media.play();
+                  }
 
+                  //var my_media = new Media(audioM.url,
+                  //  function () {
+                  //    console.log("playAudio() : success");
+                  //  },
+                  //  function (err) {
+                  //    console.log("playAudio() : : "+err);
+                  //  });
+                  //my_media.play();
+                };
+              })(marker, audioM);
             var audioButtonMarker = new $window.AMap.Marker({
               content: audioM,
               offset: new AMap.Pixel(3, -64),
