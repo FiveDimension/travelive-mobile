@@ -94,7 +94,7 @@ module.exports = [
 
           $scope.lives = $scope.lives.sort(function (a, b) {
             return b.time - a.time;
-          })
+          });
         });
     }
   }

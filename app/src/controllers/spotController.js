@@ -51,6 +51,14 @@ module.exports = [
         }],
         lives: spot.streams
       };
+
+      $scope.spot.lives = $scope.spot.lives.sort(function (a, b) {
+        if(a.status== b.status){
+          return getTimeFormST(b.st_id) - getTimeFormST(a.st_id);
+        }
+        return a.status==='online'? -1: 1;
+      });
+
       $scope.modelSpot = angular.copy($scope.spot);
       $scope.modelSpot.mapOptions.pluginScale = true;
       $scope.modelSpot.mapOptions.pluginToolBar = true;
@@ -81,6 +89,13 @@ module.exports = [
     $scope.addFollow = function($event, id) {
       $event.stopPropagation();
       console.log('addFollow', id);
+    }
+
+    function getTimeFormST(stId){
+      var sLn = stId.length,
+        tStr = stId.substring(sLn-10,sLn);
+
+      return new Date(Number(tStr+"000"));
     }
   }
 ];
