@@ -11,8 +11,9 @@ module.exports = [
     '$q',
     '$ionicModal',
     '$rootScope',
+    '$window',
 
-    function($http, $q, $ionicModal, $rootScope) {
+    function($http, $q, $ionicModal, $rootScope, $window) {
       var selectAttraction = function(option){
         var deferred = $q.defer(),
           searchScope = $rootScope.$new();
@@ -46,6 +47,10 @@ module.exports = [
           searchScope.modal.show();
           searchScope.rh = getHistory();
           ln = searchScope.rh.length;
+
+          setTimeout(function(){
+            $window.document.activeElement.blur();
+          }, 100);
 
           if(ln == 0) return;
           if(ln < 4) {
@@ -81,18 +86,6 @@ module.exports = [
                 return {title: item.name, vp_id: item.vp_id};
               });
           });
-
-          //searchScope.result = [{
-          //    title: "soho1" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho2" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho3" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho4" + searchScope.input.keyWord
-          //  },{
-          //    title: "soho5" + searchScope.input.keyWord
-          //  }];
         };
 
         searchScope.doSelect = function(item){

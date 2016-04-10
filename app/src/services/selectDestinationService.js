@@ -11,8 +11,9 @@ module.exports = [
     '$q',
     '$ionicModal',
     '$rootScope',
+    '$window',
 
-    function($http, $q, $ionicModal, $rootScope) {
+    function($http, $q, $ionicModal, $rootScope, $window) {
       var hotCity = [
         "北京",
         "上海",
@@ -68,6 +69,10 @@ module.exports = [
           searchScope.modal.show();
           searchScope.rh = getHistory();
           ln = searchScope.rh.length;
+
+          setTimeout(function(){
+            $window.document.activeElement.blur();
+          }, 100);
 
           if(ln == 0) return;
           if(ln < 4) {
