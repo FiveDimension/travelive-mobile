@@ -1,20 +1,16 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-positive">
       <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
-      <h1 class="title">历史观看</h1>
+      <h1 class="title">关注主播</h1>
     </ion-header-bar>
 
     <ion-content>
         <div class="list">
-          <a class="item item-avatar">
+          <a class="item item-avatar" ng-repeat=" f in followList">
             <img src="images/thumbnail/EmptyThunbnailPhoto.png">
-            <h2>Venkman</h2>
+            <h2>{{f.username}}</h2>
           </a>
-
-          <a class="item item-avatar">
-            <img src="images/thumbnail/EmptyThunbnailPhoto.png">
-            <h2>克鲁斯</h2>
-          </a>
+          <a class="item" ng-if="!followList || followList.length==0" style="text-align: center">暂无关注</a>
         </div>
     </ion-content>
 

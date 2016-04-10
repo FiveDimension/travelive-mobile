@@ -14,8 +14,9 @@ module.exports = [
   '$http',
   '$stateParams',
   'PlayHistoryService',
+  'FollowService',
 
-  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams, PlayHistoryService) {
+  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams, PlayHistoryService, FollowService) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
@@ -86,10 +87,17 @@ module.exports = [
       }
     };
 
-    $scope.addFollow = function($event, id) {
+    $scope.addFollow = function($event, live) {
       $event.stopPropagation();
-      console.log('addFollow', id);
-    }
+      FollowService.addFollow({
+        uid: live.p_user_id,
+        username: live.username
+      });
+    };
+
+    $scope.isFollow = function(uid){
+      return FollowService.isFollow(uid);
+    };
 
     function getTimeFormST(stId){
       var sLn = stId.length,
