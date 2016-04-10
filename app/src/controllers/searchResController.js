@@ -36,7 +36,8 @@ module.exports = [
           position: [data[i].pin.location.lon, data[i].pin.location.lat],
           image: data[i].photo_url,
           href: '#/app/spot/' + data[i].vp_id ,
-          vpId: data[i].vp_id
+          vpId: data[i].vp_id,
+          name: data[i].name
         })
       }
       if($scope.currentMap) {
