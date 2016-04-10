@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('l42y.amap.map', [
-  'l42y.amap'
-]).directive('amapMap', ['$window', 'Amap', '$rootScope', function ($window, Amap, $rootScope) {
+  'l42y.amap',
+  'ngCordova',
+]).directive('amapMap', ['$window', 'Amap', '$rootScope', '$cordovaMedia', function ($window, Amap, $rootScope, $cordovaMedia) {
   return {
     scope: {
       fitView: '=amapMapFitView'
@@ -23,6 +24,8 @@ angular.module('l42y.amap.map', [
         '<div class="amap-info-sharp" style="height: 23px;"></div></div>';
       var addButton = '<i class="icon ion-ios-plus" style="font-size: 38px;color: rgba(0, 0, 0, 0.45);"></i>';
       var delButton = '<i class="icon ion-minus-circled" style="font-size: 38px;color: rgba(0, 0, 0, 0.45);"></i>';
+      var audioButton = '<i class="icon ion-headphone" style="font-size: 38px;color: #0c60ee;text-shadow: 1px 1px 1px #000;"></i>';
+
 
       function addMarker(map, options, markers) {
         if(markers == undefined) {
@@ -42,6 +45,36 @@ angular.module('l42y.amap.map', [
               position:  m.getPosition()
             });
             infowindowMarker.setMap(map);
+          }
+
+          if (options.audio) {
+            var audioM  = document.createElement('A');
+            (function(marker, audioM){
+              audioM.innerHTML = audioButton;
+              audioM.onclick = function() {
+                console.log('audioM', marker.voice_url);
+                //$rootScope.$broadcast('cachedDelVpId', marker.vpId);
+                //TODO: 播放音频
+                var media = $cordovaMedia.newMedia(marker.voice_url);
+                media.play();
+                //var my_media = new Media(audioM.url,
+                //  function () {
+                //    console.log("playAudio() : success");
+                //  },
+                //  function (err) {
+                //    console.log("playAudio() : : "+err);
+                //  });
+                //my_media.play();
+              };
+            })(marker, audioM);
+
+            var audioButtonMarker = new $window.AMap.Marker({
+              content: audioM,
+              offset: new AMap.Pixel(3, -64),
+              //size: new AMap.Size(230, 0),
+              position:  m.getPosition()
+            });
+            audioButtonMarker.setMap(map);
           }
 
           lineArr.push(marker.position);
@@ -120,9 +153,7 @@ angular.module('l42y.amap.map', [
         console.log('refreshAMap');
         map.clearMap();
         addMarker(map, options, markers);
-      })
-
-
+      });
     }
   };
 }]);

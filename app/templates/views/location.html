@@ -10,5 +10,18 @@
              amap-map
              ng-model="currentMap">
         </div>
+        <div style="position: absolute; overflow-y: auto; width: 80px;height: 500px;background: rgba(0, 0, 0, 0.6);bottom: 128px;right: 7px;border-radius: 5px; padding: 5px" >
+            <ul ui-sortable ng-model="currentMap.markers" >
+                <li ng-repeat="m in currentMap.markers">
+                    <div style="position: relative;">
+                        <img ng-src="{{m.image}}" width="70" height="70" ng-click="goMarker(m)">
+                        <span ng-bind="m.name" style="position: absolute; bottom: 2px; color: #FFF;"></span>
+                        <i ng-if="!m.isAdded" class="icon ion-ios-plus" ng-click="addVpId(m.vpId)" style="position: absolute;top: -12px;left: -12px;font-size: 24px;color: #000;"></i>
+                        <i ng-if="m.isAdded" class="icon ion-close-circled" ng-click="delVpId(m.vpId)" style="position: absolute;top: -12px;left: -12px;font-size: 24px;color: #000;"></i>
+                    </div>
+                </li>
+                <li><center><i class="icon ion-ios-plus-outline" style="font-size: 50px;color: #FFF;" ng-click="add()"></i></center></li>
+            </ul>
+        </div>
     </ion-content>
 </ion-modal-view>

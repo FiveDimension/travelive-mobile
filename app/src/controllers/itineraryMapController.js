@@ -57,7 +57,8 @@ module.exports = [
               pluginToolBar: true,
               showInfoWindow: false,
               showAddButton: false,
-              showPolyline: true
+              showPolyline: true,
+              audio: true,
             },
             markers: []
           };

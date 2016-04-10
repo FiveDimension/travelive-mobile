@@ -17,19 +17,15 @@
         </div>
         <div class="content" ng-if="!isLoading" >
             <div ng-repeat="item in items" class="list card">
-                <!--<div class="item item-avatar">-->
-                <!--<img src="https://avatars1.githubusercontent.com/u/8654182?v=3&s=460">-->
-                <!--<h2>Pretty Hate Machine</h2>-->
-                <!--<p>Nine Inch Nails</p>-->
-                <!--</div>-->
-                <div class="item item-image">
-                    <img ng-src="{{item.image}}">
+                <div class="item item-image" style="position: relative">
+                    <a ng-click="" style="display: block" >
+                        <img ng-src="{{item.image}}">
+                    </a>
+                    <span ng-bind="item.name" style="position: absolute;bottom: 8px;color: #FFF;left: 10px;font-size: 21px;text-shadow: 1px 1px 1px black;"></span>
                 </div>
-                <a class="item bar-light"  ui-sref="app.spot">
-                    <!--<i class="icon ion-music-note"></i>-->
-                    <span ng-bind="item.name"></span>
-                </a>
             </div>
+
+
         </div>
 
 

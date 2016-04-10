@@ -26,6 +26,15 @@
                     <button class="button button-block button-positive" ng-click="doSearch()">查询</button>
                 </div>
             </div>
+            <div class="card">
+                <div class="item title">热门景点</div>
+                <div class="item item-image" ng-repeat="spot in hotSpot" style="position: relative">
+                    <a ui-sref="app.spot({id: spot.vp_id})" style="display: block; max-height: 90px;" >
+                        <img ng-src="{{spot.photo_url}}">
+                    </a>
+                    <h2 ng-bind="spot.name" style="position: absolute;bottom: 8px;color: #FFF;left: 10px;text-shadow: 1px 1px 1px black;"></h2>
+                </div>
+            </div>
         </div>
 
     </ion-content>

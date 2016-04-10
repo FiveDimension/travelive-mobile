@@ -10,8 +10,8 @@
              amap-map
              ng-model="currentMap">
         </div>
-        <div style="position: absolute; width: 80px;height: 500px;background: rgba(0, 0, 0, 0.6);bottom: 128px;right: 7px;border-radius: 5px; padding: 5px" >
-            <ul ui-sortable ng-model="currentMap.markers" on-hold="isEdit = true" >
+        <div style="position: absolute; overflow-y: auto; width: 80px;height: 500px;background: rgba(0, 0, 0, 0.6);bottom: 128px;right: 7px;border-radius: 5px; padding: 5px" >
+            <ul ng-model="currentMap.markers" on-hold="isEdit = true" >
                 <li ng-repeat="m in currentMap.markers">
                     <div style="position: relative;">
                         <img ng-src="{{m.image}}" width="70" height="70" on-tap="isEdit = false">
