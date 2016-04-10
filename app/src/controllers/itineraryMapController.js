@@ -69,7 +69,8 @@ module.exports = [
               image: data[i].photo_url,
               href: '#/app/spot/' + data[i].vp_id ,
               vpId: data[i].vp_id,
-              name: data[i].name
+              name: data[i].name,
+              voice_url: data[i].voice_url
             };
             markerMap[m.vpId] = m;
 
