@@ -67,7 +67,7 @@ angular.module( 'Travelive', [
       })
       .state('app.discovery', {
         url: '/discovery',
-        cache: true,
+        cache: false,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/discovery.html',
@@ -87,7 +87,7 @@ angular.module( 'Travelive', [
       })
       .state('app.location', {
         url: '/location',
-        cache: true,
+        cache: false,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/location.html',
@@ -97,7 +97,7 @@ angular.module( 'Travelive', [
       })
       .state('app.itineraryMap', {
         url: '/itinerary_map?name',
-        cache: true,
+        cache: false,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/itineraryMap.html',
@@ -107,7 +107,7 @@ angular.module( 'Travelive', [
       })
       .state('app.searchRes', {
         url: '/search_res',
-        cache: true,
+        cache: false,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/location.html',
@@ -117,7 +117,7 @@ angular.module( 'Travelive', [
       })
       .state('app.spot', {
         url: '/spot/:id',
-        cache: true,
+        cache: false,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/spot.html',
@@ -127,7 +127,7 @@ angular.module( 'Travelive', [
       })
       .state('app.spots', {
         url: '/spots',
-        cache: true,
+        cache: false,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/spots.html',
@@ -137,7 +137,7 @@ angular.module( 'Travelive', [
       })
       .state('app.itinerary', {
         url: '/itinerary',
-        cache: true,
+        cache: false,
         views: {
           'viewContent': {
             templateUrl: 'templates/views/itinerary.html',
