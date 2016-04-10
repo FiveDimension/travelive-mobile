@@ -139,9 +139,9 @@ module.exports = [
 
 
     $scope.goMarker = function(marker) {
-      $scope.currentMap.mapOptions.center = marker.position;
+      //$scope.currentMap.mapOptions.center = marker.position;
       $scope.currentMap.mapOptions.zoom = 16;
-      $rootScope.$broadcast('refreshAMapMarker', $scope.currentMap.mapOptions, angular.copy($scope.currentMap.markers));
+      $rootScope.$broadcast('setCenter', marker.position);
     }
   }
 ];

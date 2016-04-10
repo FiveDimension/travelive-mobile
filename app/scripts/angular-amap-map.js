@@ -161,6 +161,13 @@ angular.module('l42y.amap.map', [
         map.clearMap();
         addMarker(map, options, markers);
       });
+
+      $scope.$on('setCenter', function(event, options){
+        console.log('setCenter', options);
+        map.setCenter(options);
+      });
+
+
     }
   };
 }]);
