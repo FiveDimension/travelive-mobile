@@ -72,8 +72,10 @@ module.exports = [
               voice_url: data[i].voice_url
             };
             markerMap[m.vpId] = m;
+            $scope.currentMap.markers.push(m);
           }
           $http.post('http://58.40.126.144/api/createRoute', {"vp_id_list":ii.vp_ids} ).success(function(route){
+            $scope.currentMap.markers = [];
             for(var i = 0; i < route.length; i++) {
               $scope.currentMap.markers.push(markerMap[route[i]]);
             }
