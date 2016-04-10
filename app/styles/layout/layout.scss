@@ -14,3 +14,13 @@
   text-shadow: 1px 1px 1px #acacac;
   font-weight: bolder;
 }
+
+.tabs.tabs-icon-top{
+  .tab-item.open-live{
+    background: #669EFD;
+    color: #fbf8ff;
+    i {
+      font-size: 46px;
+    }
+  }
+}

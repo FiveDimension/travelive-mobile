@@ -3,11 +3,11 @@
 
     <!--</ion-header-bar>-->
     <ion-header-bar align-title="center" class="bar-positive">
-        <button class="button button-icon icon ion-navicon" menu-toggle="left" style="display: block;"></button>
-        <h1 class="title">发现</h1>
+        <!--<button class="button button-icon icon ion-navicon" menu-toggle="left" style="display: block;"></button>-->
+        <h1 class="title">热景直播</h1>
         <!--<button class="button button-icon icon ion-ios-person-outline"ng-click="doSomething()"></button>-->
     </ion-header-bar>
-    <ion-content>
+    <ion-content class="has-tabs" >
         <ion-refresher
                 pulling-text="Pull to refresh..."
                 on-refresh="fetchRandomText()">
@@ -16,19 +16,55 @@
             <ion-spinner></ion-spinner>
         </div>
         <div class="content" ng-if="!isLoading" >
-            <div ng-repeat="item in items" class="list card">
-                <div class="item item-image" style="position: relative">
-                    <a ng-click="" style="display: block" >
-                        <img ng-src="{{item.image}}">
+
+            <div class="card">
+                <div class="item title">直播中</div>
+                <div ng-repeat="item in items | filter: {status: 'online'}" class="item item-image" style="position: relative">
+                    <a ng-click="openVideo(item)" style="display: block" >
+                        <img ng-src="{{item.image}}" style="max-height: 120px;">
                     </a>
-                    <span ng-bind="item.name" style="position: absolute;bottom: 8px;color: #FFF;left: 10px;font-size: 21px;text-shadow: 1px 1px 1px black;"></span>
+                    <span ng-bind="item.name" style="position: absolute;top: 8px;color: #FFF;left: 10px;font-size: 21px;text-shadow: 1px 1px 1px black;"></span>
+                    <span style="position: absolute;bottom: 8px;color: #FFF;left: 10px;font-size: 21px;text-shadow: 1px 1px 1px black;">{{item.title}} @{{item.username}} </span>
                 </div>
             </div>
+
+            <div class="card">
+                <div class="item title">重播</div>
+                <div ng-repeat="item in items| filter: {status: 'offline'}" class="item item-image" style="position: relative">
+                    <a  ng-click="openVideo(item)" style="display: block" >
+                        <img ng-src="{{item.image}}" style="max-height: 120px;">
+                    </a>
+                    <span ng-bind="item.name" style="position: absolute;top: 8px;color: #FFF;left: 10px;font-size: 21px;text-shadow: 1px 1px 1px black;"></span>
+                    <span style="position: absolute;bottom: 8px;color: #FFF;left: 10px;font-size: 21px;text-shadow: 1px 1px 1px black;">{{item.title}} @{{item.username}} </span>
+                </div>
+            </div>
+
+
 
 
         </div>
 
 
     </ion-content>
-
+    <div class="tabs tabs-icon-top tabs-positive">
+        <a class="tab-item" ui-sref="app.home">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ui-sref="app.discovery">
+            <i class="icon ion-paper-airplane"></i>
+            热景直播
+        </a>
+        <a class="tab-item open-live" ui-sref="app.startLive">
+            <i class="icon ion-ios-pulse-strong" ></i>
+        </a>
+        <a class="tab-item" ui-sref="app.itinerary">
+            <i class="icon ion-calendar"></i>
+            行程播报
+        </a>
+        <a class="tab-item" ui-sref="app.myTravel">
+            <i class="icon ion-person"></i>
+            我的travel
+        </a>
+    </div>
 </ion-view>

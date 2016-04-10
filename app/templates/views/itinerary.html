@@ -1,10 +1,9 @@
 <ion-view>
     <ion-header-bar align-title="center" class="bar-positive">
-        <button class="button button-icon icon ion-navicon" menu-toggle="left" style="display: block;"></button>
+        <!--<button class="button button-icon icon ion-navicon" menu-toggle="left" style="display: block;"></button>-->
         <h1 class="title">行程播报</h1>
-
     </ion-header-bar>
-    <ion-content>
+    <ion-content  class="has-tabs">
         <ion-refresher
                 pulling-text="Pull to refresh..."
                 on-refresh="fetchRandomText()">
@@ -13,7 +12,7 @@
             <ion-spinner></ion-spinner>
         </div>
         <div class="content" ng-if="!isLoading" >
-            <div ng-repeat="itinerary in itineraries" class="list card">
+            <div ng-repeat="itinerary in itineraries" class="list" style="margin-bottom: 5px">
                 <!--<div class="item item-avatar">-->
                 <!--<img src="https://avatars1.githubusercontent.com/u/8654182?v=3&s=460">-->
                 <!--<h2>Pretty Hate Machine</h2>-->
@@ -21,7 +20,7 @@
                 <!--</div>-->
                 <div class="item item-image" style="position: relative">
                     <a ui-sref="app.itineraryMap({name: itinerary.name})" style="display: block" >
-                        <img ng-src="{{itinerary.image}}">
+                        <img ng-src="{{itinerary.image}}" style="max-height: 150px;">
                     </a>
                     <span ng-bind="itinerary.name" style="position: absolute;bottom: 8px;color: #FFF;left: 10px;font-size: 21px;text-shadow: 1px 1px 1px black;"></span>
                 </div>
@@ -32,4 +31,25 @@
             <!--</button>-->
         </div>
     </ion-content>
+    <div class="tabs tabs-icon-top  tabs-positive">
+        <a class="tab-item" ui-sref="app.home">
+            <i class="icon ion-home"></i>
+            首页
+        </a>
+        <a class="tab-item" ui-sref="app.discovery">
+            <i class="icon ion-paper-airplane"></i>
+            热景直播
+        </a>
+        <a class="tab-item open-live" ui-sref="app.startLive">
+            <i class="icon ion-ios-pulse-strong" ></i>
+        </a>
+        <a class="tab-item" ui-sref="app.itinerary">
+            <i class="icon ion-calendar"></i>
+            行程播报
+        </a>
+        <a class="tab-item" ui-sref="app.myTravel">
+            <i class="icon ion-person"></i>
+            我的travel
+        </a>
+    </div>
 </ion-view>
