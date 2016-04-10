@@ -198,7 +198,8 @@ angular.module( 'Travelive', [
         cache: true,
         views: {
           'viewContent': {
-            templateUrl: 'templates/views/playHistory.html'
+            templateUrl: 'templates/views/playHistory.html',
+            controller: 'PlayHistoryController'
           }
         }
       })
@@ -243,6 +244,7 @@ angular.module( 'Travelive', [
 .controller( 'SettingsController',      require('./controllers/settingsController') )
 .controller( 'LoginController',      require('./controllers/loginController') )
 .controller( 'MyLiveController',      require('./controllers/myLiveController') )
+.controller( 'PlayHistoryController',      require('./controllers/playHistoryController') )
 .controller( 'SpotController',          require('./controllers/spotController') )
 .controller( 'SpotsController',         require('./controllers/spotsController') )
 .controller( 'LiveSettingController',   require('./controllers/liveSettingController') )
@@ -251,6 +253,7 @@ angular.module( 'Travelive', [
 
 // Angular module services
 //
+.factory( 'PlayHistoryService', require( './services/playHistoryService' ) )
 .factory( 'ItineraryService',        require( './services/itineraryService' ) )
 .factory( 'ApiService',            require( './services/ApiService'     ) )
 .factory( 'SelectAttractionService', require( './services/SelectAttractionService' ) )

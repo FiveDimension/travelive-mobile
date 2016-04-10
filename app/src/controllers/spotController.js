@@ -13,8 +13,9 @@ module.exports = [
   '$ionicHistory',
   '$http',
   '$stateParams',
+  'PlayHistoryService',
 
-  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams) {
+  function ($scope, $rootScope, $state, $ionicHistory, $http, $stateParams, PlayHistoryService) {
     $scope.goBack = function () {
       $ionicHistory.goBack();
     };
@@ -50,6 +51,14 @@ module.exports = [
         }],
         lives: spot.streams
       };
+
+      $scope.spot.lives = $scope.spot.lives.sort(function (a, b) {
+        if(a.status== b.status){
+          return getTimeFormST(b.st_id) - getTimeFormST(a.st_id);
+        }
+        return a.status==='online'? -1: 1;
+      });
+
       $scope.modelSpot = angular.copy($scope.spot);
       $scope.modelSpot.mapOptions.pluginScale = true;
       $scope.modelSpot.mapOptions.pluginToolBar = true;
@@ -69,15 +78,24 @@ module.exports = [
           chatUrl: 'http://182.254.135.18:3000/?user='+ $scope.user.username +
           "&uid="+ $scope.user.uid +'&rid=' + live.st_id
         };
-        window.open("rtmp://182.254.135.18/live/" + $scope.st_id, "_playlive", JSON.stringify(data));
+        live.playTime = new Date().getTime();
+        PlayHistoryService.addPlayHistory(live);
+        window.open("rtmp://182.254.135.18/live/" + live.st_id, "_playlive", JSON.stringify(data));
       } else {
-        // TODO openVideo
+        window.open('http://182.254.135.18:8080/record/'+ live.st_id +'.mp4', "", "location=yes");
       }
     };
 
     $scope.addFollow = function($event, id) {
       $event.stopPropagation();
       console.log('addFollow', id);
+    }
+
+    function getTimeFormST(stId){
+      var sLn = stId.length,
+        tStr = stId.substring(sLn-10,sLn);
+
+      return new Date(Number(tStr+"000"));
     }
   }
 ];

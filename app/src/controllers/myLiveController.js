@@ -28,7 +28,7 @@ module.exports = [
             },
             buttonClicked:  function(index) {
               console.log('buttonClicked', index);
-              //TODO openVideo
+              window.open('http://182.254.135.18:8080/record/'+ st.id +'.mp4', "", "location=yes");
               return true;
             },
             destructiveButtonClicked: function() {
@@ -94,7 +94,7 @@ module.exports = [
 
           $scope.lives = $scope.lives.sort(function (a, b) {
             return b.time - a.time;
-          })
+          });
         });
     }
   }
