@@ -26,8 +26,19 @@ module.exports = [
     };
     console.log($stateParams);
     //$scope.currentMap = angular.copy($rootScope.CurrentMap);
-    $timeout(function(){
+
+    $http.post('http://58.40.126.144/api/getVpDetail', {vp_id: $rootScope.CurrentMap.vp_id}).success(function(data){
+      console.log(data);
       $scope.currentMap = angular.copy($rootScope.CurrentMap);
+      $scope.currentMap.markers = [];
+      for (var i = 0; i < data.length; i++) {
+        $scope.currentMap.markers.push({
+          position: [data[i].pin.location.lon, data[i].pin.location.lat],
+          image: data[i].photo_url,
+          href: '#/app/spot/' + data[i].vp_id ,
+          vpId: data[i].vp_id
+        })
+      }
       if($scope.currentMap) {
         for(var i = 0; i< $scope.currentMap.markers.length; i++ ) {
           var marker = $scope.currentMap.markers[i];
@@ -38,16 +49,9 @@ module.exports = [
           }
         }
       }
-    }, 100);
-
-    $http.post('http://58.40.126.144/api/getVpDetail', {vp_id: $rootScope.CurrentMap.vp_id}).success(function(data){
-      console.log(data);
     });
 
-
-
-    $scope.$on('cachedAddVpId', function(event, vpid){
-      console.log('args',arguments);
+    $scope.addVpId = function(vpid) {
       ItineraryService.addByKey('cache', vpid);
       for(var i = 0; i< $scope.currentMap.markers.length; i++ ) {
         var marker = $scope.currentMap.markers[i];
@@ -58,11 +62,14 @@ module.exports = [
         }
       }
       $rootScope.$broadcast('refreshAMapMarker', $scope.currentMap.mapOptions, angular.copy($scope.currentMap.markers));
+    };
+
+    $scope.$on('cachedAddVpId', function(event, vpid){
+      console.log('args',arguments);
+      $scope.addVpId(vpid)
     });
 
-
-    $scope.$on('cachedDelVpId', function(event, vpid){
-      console.log('args',arguments);
+    $scope.delVpId = function(vpid) {
       ItineraryService.removeByKey('cache', vpid);
       for(var i = 0; i< $scope.currentMap.markers.length; i++ ) {
         var marker = $scope.currentMap.markers[i];
@@ -73,6 +80,11 @@ module.exports = [
         }
       }
       $rootScope.$broadcast('refreshAMapMarker', $scope.currentMap.mapOptions, angular.copy($scope.currentMap.markers));
+    }
+
+    $scope.$on('cachedDelVpId', function(event, vpid){
+      console.log('args',arguments);
+      $scope.delVpId(vpid);
     });
 
 
@@ -123,5 +135,12 @@ module.exports = [
       console.log('modalOk');
       $scope.closeModal();
     };
+
+
+    $scope.goMarker = function(marker) {
+      $scope.currentMap.mapOptions.center = marker.position;
+      $scope.currentMap.mapOptions.zoom = 16;
+      $rootScope.$broadcast('refreshAMapMarker', $scope.currentMap.mapOptions, angular.copy($scope.currentMap.markers));
+    }
   }
 ];
