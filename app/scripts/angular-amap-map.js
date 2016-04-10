@@ -63,6 +63,7 @@ angular.module('l42y.amap.map', [
                     media = $cordovaMedia.newMedia(marker.voice_url);
                     media.play();
                   }
+                  isPlaying = !isPlaying;
 
                   //var my_media = new Media(audioM.url,
                   //  function () {
